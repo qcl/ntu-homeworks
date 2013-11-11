@@ -1,0 +1,21 @@
+.class UseStdIO
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method public static void main(String[])
+	ldc 2
+	ldc 0
+	if_icmplt L1
+	ldc ">="
+	invokestatic void print(String) @ StdIO
+	goto L2
+L1:
+L2:
+	ldc "hello"
+	invokestatic void print(String) @ StdIO
+	invokestatic void println() @ StdIO
+	return
+

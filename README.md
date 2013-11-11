@@ -26,7 +26,7 @@ qcl 將會陸續整理過去的作業彙整至此。
 
 * Economics 經濟學原理 *準備中*
 * Financial Computing 財務演算法 *準備中*
-* Infomration Retrieval and Extraction 資料檢索與擷取 *準備中*
+* Information Retrieval and Extraction 資料檢索與擷取 *準備中*
 * Surveying and Geomatics 測量及空間資訊導論 *準備中*
 
 #2011 Fall (100-1)
@@ -39,6 +39,7 @@ qcl 將會陸續整理過去的作業彙整至此。
 
 #2011 Spring (99-2)
 
+* Compiler 編譯程式設計
 * 高等程式設計
 * 計算機網路
 

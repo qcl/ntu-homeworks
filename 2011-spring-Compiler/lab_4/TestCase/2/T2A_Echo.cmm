@@ -1,0 +1,5 @@
+{
+	int a;
+	scan(a);
+	println("Input is: ", a);
+}

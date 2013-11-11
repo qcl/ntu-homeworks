@@ -1,0 +1,61 @@
+.class sumAbs
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method public static void main(String[])
+	ldc 10
+	newarray int
+	astore #3
+	ldc 0
+	istore #2
+	ldc 0
+	istore #1
+L9:
+	iload #1
+	ldc 10
+	if_icmpge L28
+	aload #3
+	iload #1
+	invokestatic int readInt() @ StdIO
+	iastore
+	iload #1
+	ldc 1
+	iadd
+	istore #1
+	goto L9
+L28:
+	iload #1
+	ifeq L62
+	iload #1
+	ldc 1
+	isub
+	istore #1
+	aload #3
+	iload #1
+	iaload
+	istore #4
+	iload #4
+	iflt L54
+	iload #2
+	iload #4
+	iadd
+	istore #2
+	goto L59
+L54:
+	iload #2
+	iload #4
+	isub
+	istore #2
+L59:
+	goto L28
+L62:
+	ldc "sum of absolute values = "
+	invokestatic void print(String) @ StdIO
+	iload #2
+	invokestatic void print(int) @ StdIO
+	invokestatic void println() @ StdIO
+	return
+

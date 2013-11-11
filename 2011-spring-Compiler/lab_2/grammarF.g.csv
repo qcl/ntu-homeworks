@@ -1,0 +1,7 @@
+ LHS , RHS , FIRST , FOLLOW , PREDICT 
+" E "," Prefix ( E ) "," f v ( "," (eof) ) "," f ( "
+," v Tail ",,," v "
+" Prefix "," f "," (null) f "," ( "," f "
+," (null) ",,," ( "
+" Tail "," + E "," (null) + "," (eof) ) "," + "
+," (null) ",,," (eof) ) "

@@ -1,0 +1,114 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Method-Related Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Method-Related Instructions</h1>
+
+<h3>Contents</h3>
+
+<ul>
+  <li><a href="#invoke">Method invocation instructions</a>
+  <li><a href="#return">Method return instructions</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="invoke"><h2><hr>Method Invocation Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>invokestatic <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#invokestatic">vmspec</a></font></sup><td>see below<td>X X<td>-<td ALIGN=LEFT>invoke static method 
+<font color="#FF6600">(assuming: 2 arguments)</font>
+<tr ALIGN=CENTER><td ALIGN=LEFT>invokevirtual <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#invokevirtual">vmspec</a></font></sup><td>see below<td>R X X<td>-<td ALIGN=LEFT>invoke instance method
+<tr ALIGN=CENTER><td ALIGN=LEFT>invokespecial <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#invokespecial">vmspec</a></font></sup><td>see below<td>R X X<td>-<td ALIGN=LEFT>invoke &lt;init>, private method, overridden method
+<tr ALIGN=CENTER><td ALIGN=LEFT>invokeinterface <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#invokeinterface">vmspec</a></font></sup><td>see below<td>R X X<td>-<td ALIGN=LEFT>invoke interface method
+</table>
+auguments: <i>retType name</i> <tt>(</tt> <i>argType</i> <tt>,</tt> ... <tt>) @</tt> <i>class</i>
+
+<p><i>class</i> is the declared class (interface) name of the invoked method.
+It can be a <a href="../../../../langspec/names.doc.html#21810">simple type name</a>
+or a <a href="../../../../langspec/names.doc.html#21811">qualified type name</a>.
+If it is a simple name, Bass can automatically determine its qualified name
+according to <a href="BassDir.html#import"><tt>.import</tt></a> directives.
+If it is a qualified name, white space is not permitted between identifiers and periods.
+If the callee method is declared in the same class as caller, 
+"<tt>@</tt> <i>class</i>" is optional.
+
+<i>name</i> is the name of the invoked method.
+It can be a <a href="../../../../langspec/names.doc.html#54512">simple method name</a>,
+<tt>&lt;init></tt> (for constructor) or <tt>&lt;clinit></tt> (for static initializer).
+
+<i>argType</i> is (are) the argument type(s) of the invoked method.
+They are Java <a href="../../../../langspec/typesValues.doc.html#48440">type</a>s.
+If the method has no argument, <i>argType</i> is omitted.
+If the method has more than one arguments, they are separated by commas.
+
+<i>retType</i> is the return type of the invoked method. 
+It can be a Java type or <tt>void</tt>.
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- String.valueOf(c, 3, 5)
+; valueOf() is a static method declared in class String
+;           1st argument type is char[]
+;           return type is String
+; assuming c is located at local variable #1
+    aload #1        ; stack -- ... R (to a char[] object)
+    ldc 3           ; stack -- ... R I
+    ldc 5           ; stack -- ... R I I
+    invokestatic String valueOf(char[], int, int) @ String
+                    ; stack -- ... R (return String object)
+
+; instructions for -- s.startsWith("abc")
+; startsWith() is an instance method for String objects
+;              return type is boolean
+; assuming s is located at local variable #2
+    aload #2        ; stack -- ... R (to a String object)
+    ldc "abc"       ; stack -- ... R R
+    invokevirtual boolean startsWith(String) @ String
+                    ; stack -- ... Z (return boolean value)
+
+; instructions for -- new String()
+    new String      ; stack -- ... R (to a String object)
+    dup             ; stack -- ... R R
+    invokespecial void &lt;init>() @ java.lang.String
+                    ; stack -- ... R
+
+; instructions for -- getBytes(ctb)
+; getBytes() is a private instance method for String objects
+;            1st argument type is CharToByteConverter
+;            return type is byte[]
+; assuming both caller and callee are declared in class String
+; assuming ctb is located at local variable #3
+    aload #0        ; stack -- ... R (this)
+    aload #3        ; stack -- ... R R (to a CharToByteConverter object)
+    invokespecail byte[] getBytes(CharToByteConverter)
+                    ; stack -- ... R (return byte[] object)
+                    ; "@ <i>class</i>"is omissible
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="return"><h2><hr>Method Return Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>return <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc12.html#return">vmspec</a></font></sup><td>&nbsp;<td><i>all</i><td>-<td ALIGN=LEFT>return (void) from method
+<tr ALIGN=CENTER><td ALIGN=LEFT>ireturn <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ireturn">vmspec</a></font></sup><td>&nbsp;<td><i>all</i> I<td>-<td ALIGN=LEFT>return integer from method
+<tr ALIGN=CENTER><td ALIGN=LEFT>lreturn <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lreturn">vmspec</a></font></sup><td>&nbsp;<td><i>all</i> L<td>-<td ALIGN=LEFT>return <tt>long</tt> from  method
+<tr ALIGN=CENTER><td ALIGN=LEFT>freturn <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#freturn">vmspec</a></font></sup><td>&nbsp;<td><i>all</i> F<td>-<td ALIGN=LEFT>return <tt>float</tt> from method
+<tr ALIGN=CENTER><td ALIGN=LEFT>dreturn <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dreturn">vmspec</a></font></sup><td>&nbsp;<td><i>all</i> D<td>-<td ALIGN=LEFT>return <tt>double</tt> from method
+<tr ALIGN=CENTER><td ALIGN=LEFT>areturn <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#areturn">vmspec</a></font></sup><td>&nbsp;<td><i>all</i> R<td>-<td ALIGN=LEFT>return reference from method
+</table>
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- return 100;
+    bipush 100
+    ireturn
+
+; instructions for -- return "Hi";
+    ldc "Hi"
+    areturn
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

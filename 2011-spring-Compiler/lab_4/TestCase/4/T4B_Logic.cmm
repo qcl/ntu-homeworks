@@ -1,0 +1,14 @@
+{
+	int a;
+	scan(a);
+	
+	if (10 <= a && a <= 20) {
+		println(a, " is between 10 and 20");
+	}
+	if (10 > a || a > 20) {
+		println(a, " is not between 10 and 20");
+	}
+	if (![10 <= a && a <= 20]) {
+		println(a, " is not between 10 and 20");
+	}
+}

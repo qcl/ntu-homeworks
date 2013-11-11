@@ -1,0 +1,12 @@
+{
+	int a, b, c;
+	scan(a, b);
+	c = a + b;
+	println(a, " + ", b, " = ", c);
+	c = a - b;
+	println(a, " - ", b, " = ", c);
+	c = a * b;
+	println(a, " * ", b, " = ", c);
+	c = a / b;
+	println(a, " / ", b, " = ", c);
+}

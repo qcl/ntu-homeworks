@@ -1,0 +1,25 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Exception-Related Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Exception-Related Instructions</h1><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>athrow <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#athrow">vmspec</a></font></sup><td>&nbsp;<td><i>all</i> R<td>R<td ALIGN=LEFT>throw exception or error
+</table>
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- throw new Exception();
+    new Exception         ; stack -- ... R
+    dup                   ; stack -- ... R R
+    invokespecial void &lt;init>() @ Exception
+                          ; stack -- ... R
+    athrow                ; stack -- R
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

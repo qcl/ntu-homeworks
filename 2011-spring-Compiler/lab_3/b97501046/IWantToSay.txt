@@ -1,0 +1,23 @@
+/*
+    NTU CSIE Compiler 2011 Lab 3
+    B97501046 Qing-Cheng Li
+    
+    IWantToSay.txt
+    Charset: utf-8
+*/
+
+我寫這個Parser是把C-------的文法改寫成LL(1)文法，採Top-down Parsering，
+Recursive Desent Parsing（因此擔心會有Stack Overflow的情形出現，
+希望測試資料沒有太誇張）
+
+Parser除了輸出Pass或Fail之外，新增了trace功能，將parser.cc第14行的
+trace = false;
+改成
+trace = true;
+就會輸出Parsing的過程，方便除錯或了解Parsing的過程。
+
+除此之外還有錯誤偵測功能，Parsing不過時會輸出是輸入文件的第幾行有問題以至
+於無法通過Parsing，並列出可能相關的文法。（只要使用結果是Fail的文件測試就
+可以看到錯誤的訊息，亦可另見所附上的額外功能測試檔（testQCL.cmm->pass,
+testQCLErr1.cmm->fail）。）
+

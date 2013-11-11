@@ -1,0 +1,123 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Array-Related Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Array-Related Instructions</h1>
+
+<h3>Contents</h3>
+
+<ul>
+  <li><a href="#create">Array creation instructions</a>
+  <li><a href="#access">Array element access instructions</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="create"><h2><hr>Array Creation Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>newarray <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc10.html#newarray">vmspec</a></font></sup><td><i>pType</i><td>I<td>R<td ALIGN=LEFT>create new primitive type array
+<tr ALIGN=CENTER><td ALIGN=LEFT>anewarray <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#anewarray">vmspec</a></font></sup><td><i>rType</i><td>I<td>R<td ALIGN=LEFT>create new reference type array
+<tr ALIGN=CENTER><td ALIGN=LEFT>multianewarray <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc9.html#multianewarray">vmspec</a></font></sup><td><i>aType dim</i><tt>-d</tt><td>I I<td>R<td ALIGN=LEFT>create new multi-dimensional array
+<font color="#FF6600">(assuming: <i>dim</i> = 2)</font>
+</table>
+
+<p><i>pType</i> is one of 8 <a href="../../../../langspec/typesValues.doc.html#85587">primitive types</a>.
+
+<i>rType</i> is a <a href="../../../../langspec/typesValues.doc.html#9317">reference type</a>.
+It can be a <a href="../../../../langspec/names.doc.html#21810">simple type name</a>
+or a <a href="../../../../langspec/names.doc.html#21811">qualified type name</a>.
+If it is a simple name, Bass can automatically determine its qualified name
+according to <a href="BassDir.html#import"><tt>.import</tt></a> directives.
+If it is a qualified name, white space is not permitted between identifiers and periods.
+
+<i>aType</i> is an <a href="../../../../langspec/arrays.doc.html#25518">array type</a>.
+<i>dim</i> is a positive integer, and "<tt>-d</tt>" is optional.
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- new byte[3]
+    ldc 3
+    newarray byte
+    
+; instructions for -- new String[4]
+    ldc 4
+    anewarray String
+    
+; instructions for -- new char[5][]
+    ldc 5
+    anewarray char[]
+    
+; instructions for -- new String[6][][]
+    ldc 6
+    anewarray String[][]
+    
+; instructions for -- new int[7][8][9]
+    ldc 7
+    ldc 8
+    ldc 9
+    multianewarray int[][][] 3-d
+    
+; instructions for -- new String[10][11][]
+    ldc 10
+    ldc 11
+    multianewarray String[][][] 2    ; "-d" is omissible
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="access"><h2><hr>Array Element Access Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>iaload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iaload">vmspec</a></font></sup><td>&nbsp;<td>[I] I<td>I<td ALIGN=LEFT>load <tt>int</tt> array element
+<tr ALIGN=CENTER><td ALIGN=LEFT>laload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#laload">vmspec</a></font></sup><td>&nbsp;<td>[L] I<td>L<td ALIGN=LEFT>load <tt>long</tt> array element
+<tr ALIGN=CENTER><td ALIGN=LEFT>faload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#faload">vmspec</a></font></sup><td>&nbsp;<td>[F] I<td>F<td ALIGN=LEFT>load <tt>float</tt> array element
+<tr ALIGN=CENTER><td ALIGN=LEFT>daload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#daload">vmspec</a></font></sup><td>&nbsp;<td>[D] I<td>D<td ALIGN=LEFT>load <tt>double</tt> array element
+<tr ALIGN=CENTER><td ALIGN=LEFT>aaload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#aaload">vmspec</a></font></sup><td>&nbsp;<td>[R] I<td>R<td ALIGN=LEFT>load reference array element
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>iastore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iastore">vmspec</a></font></sup><td>&nbsp;<td>[I] I I<td>-<td ALIGN=LEFT>store <tt>int</tt> array element
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lastore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lastore">vmspec</a></font></sup><td>&nbsp;<td>[L] I L<td>-<td ALIGN=LEFT>store <tt>long</tt> array element
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>fastore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fastore">vmspec</a></font></sup><td>&nbsp;<td>[F] I F<td>-<td ALIGN=LEFT>store <tt>float</tt> array element
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dastore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dastore">vmspec</a></font></sup><td>&nbsp;<td>[D] I D<td>-<td ALIGN=LEFT>store <tt>double</tt> array element
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>aastore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#aastore">vmspec</a></font></sup><td>&nbsp;<td>[R] I R<td>-<td ALIGN=LEFT>store reference array element
+<tr ALIGN=CENTER><td ALIGN=LEFT>baload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc1.html#baload">vmspec</a></font></sup><td>&nbsp;<td>[B] I<td>I<td ALIGN=LEFT>load <tt>byte</tt> array element
+<tr ALIGN=CENTER><td ALIGN=LEFT>saload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc13.html#saload">vmspec</a></font></sup><td>&nbsp;<td>[S] I<td>I<td ALIGN=LEFT>load <tt>short</tt> array element
+<tr ALIGN=CENTER><td ALIGN=LEFT>caload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc2.html#caload">vmspec</a></font></sup><td>&nbsp;<td>[C] I<td>I<td ALIGN=LEFT>load <tt>char</tt> array element
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>bastore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc1.html#bastore">vmspec</a></font></sup><td>&nbsp;<td>[B] I I<td>-<td ALIGN=LEFT>store <tt>byte</tt> array element
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>sastore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc13.html#sastore">vmspec</a></font></sup><td>&nbsp;<td>[S] I I<td>-<td ALIGN=LEFT>store <tt>short</tt> array element
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>castore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc2.html#castore">vmspec</a></font></sup><td>&nbsp;<td>[C] I I<td>-<td ALIGN=LEFT>store <tt>char</tt> array element
+<tr ALIGN=CENTER><td ALIGN=LEFT>arraylength <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#arraylength">vmspec</a></font></sup><td>&nbsp;<td>[X]<td>I<td ALIGN=LEFT>get field <tt>length</tt> of array object
+</table>
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- a[1] = "Hi";
+; a's type is String[]
+; assuming a is located at local variable #1
+    aload #1     ; stack -- ... R (to a String[] object)
+    ldc 1        ; stack -- ... R I
+    ldc "Hi"     ; stack -- ... R I R (to a String object)
+    aastore      ; stack -- ...
+
+; instructions for -- b[2][3] = c[4] + d.length;
+; b's type is int[][], c's type is int[], d is an array type
+; assuming b, c & d are located at local variables #2, #3 & #4
+    aload #2     ; stack -- ... R (to an int[][] object, b)
+    ldc 2        ; stack -- ... R I
+    aaload       ; stack -- ... R (to an int[] object, b[2])
+    ldc 3        ; stack -- ... R I
+    aload #3     ; stack -- ... R I R (to an int[] object, c)
+    ldc 4        ; stack -- ... R I R I
+    iaload       ; stack -- ... R I I (value of c[4])
+    aload #4     ; stack -- ... R I I R (to an array object, d)
+    arraylength  ; stack -- ... R I I I (d.length)
+    iadd         ; stack -- ... R I I (c[4] + d.length)
+    iastore      ; stack -- ...
+</pre></dl>
+
+<p>Jvm doesn't support <tt>boolean</tt> array directly.
+Instead, you can use <tt>baload</tt> and <tt>bastore</tt>
+to access <tt>boolean</tt> array elements.
+Please see <a href="../../../../vmspec/Overview.doc.html#22909">vmspec Sec. 3.3.4</a>.
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

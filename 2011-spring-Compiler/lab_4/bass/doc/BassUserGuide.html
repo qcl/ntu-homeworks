@@ -1,0 +1,119 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Bass User Guide</title>
+</head>
+<body background="../../images/441blue.jpg" nosave>
+
+<center><h1><font size=+4>Bass User Guide</font></h1></center>
+
+<p>Bass is a java <b>B</b>ytecode <b>ASS</b>embly language designed by the Laboratory 441
+of the Department of Computer Science and Information Engineering
+of the National Taiwan University.
+It is designed to allow you to write programs at the bytecode level.
+
+<h3>Contents</h3>
+
+<ul>
+<li><a href="more/BassCommand.html">Bass Assembler</a>
+  <ul>
+  <li><a href="more/BassCommand.html#Synopsis">Synopsis</a>
+  <li><a href="more/BassCommand.html#Options">Options</a>
+  <li><a href="more/BassCommand.html#Examples">Examples</a>
+  </ul>
+<li><a href="more/SopranoCommand.html">Soprano Disassembler</a>
+  <ul>
+  <li><a href="more/SopranoCommand.html#Synopsis">Synopsis</a>
+  <li><a href="more/SopranoCommand.html#Options">Options</a>
+  <li><a href="more/SopranoCommand.html#Examples">Examples</a>
+  </ul>
+<li><a href="more/BassLang.html">Bass Language</a>
+  <ul>
+  <li><a href="more/BassLang.html#Comment">Comment</a>
+  <li><a href="more/BassDir.html">Directives</a>
+    <ul>
+    <li><a href="more/BassDir.html#file">File level directives</a>
+      <ul>       
+      <li><a href="more/BassDir.html#import"><tt>.import</tt> directive</a>
+      </ul>        
+    <li><a href="more/BassDir.html#class">Class level directives</a>
+      <ul>         
+      <li><a href="more/BassDir.html#class0"><tt>.class</tt> directive</a>
+      <li><a href="more/BassDir.html#interface"><tt>.interface</tt> directive</a>
+      <li><a href="more/BassDir.html#extends"><tt>.extends</tt> directive</a>
+      <li><a href="more/BassDir.html#implements"><tt>.implements</tt> directive</a>
+      </ul>        
+    <li><a href="more/BassDir.html#member">Member level directives</a>
+      <ul>         
+      <li><a href="more/BassDir.html#field"><tt>.field</tt> directive</a>
+      <li><a href="more/BassDir.html#method"><tt>.method</tt> directive</a>
+      <li><a href="more/BassDir.html#throws"><tt>.throws</tt> directive</a>
+      </ul>        
+    <li><a href="more/BassDir.html#inst">Instruction level directives</a>
+      <ul>         
+      <li><a href="more/BassDir.html#try"><tt>.try</tt> &amp; <tt>.tryend</tt> directives</a>
+      <li><a href="more/BassDir.html#catch"><tt>.catch</tt> directive</a>
+      </ul>        
+    </ul>          
+  <li><a href="more/BassInst.html">Instructions</a>
+    <ul>           
+    <li><a href="more/BassInst.html#nop">No-operation instruction</a>
+    <li><a href="more/ConstInst.html">Constant push instructions</a>
+      <ul>         
+      <li><a href="more/ConstInst.html#int"><tt>int</tt> constant push instructions</a>
+      <li><a href="more/ConstInst.html#long"><tt>long</tt> constant push instructions</a>
+      <li><a href="more/ConstInst.html#float"><tt>float</tt> constant push instructions</a>
+      <li><a href="more/ConstInst.html#double"><tt>double</tt> constant push instructions</a>
+      <li><a href="more/ConstInst.html#ref">Reference constant push instructions</a>
+      <li><a href="more/ConstInst.html#generic">Generic version</a>
+      </ul>        
+    <li><a href="more/StackInst.html">Stack manipulation instructions</a>
+    <li><a href="more/LocalVarInst.html">Local variable access instructions</a>
+      <ul>         
+      <li><a href="more/LocalVarInst.html#int">Local <tt>int</tt> variable access instructions</a>
+      <li><a href="more/LocalVarInst.html#long">Local <tt>long</tt> variable access instructions</a>
+      <li><a href="more/LocalVarInst.html#float">Local <tt>float</tt> variable access instructions</a>
+      <li><a href="more/LocalVarInst.html#double">Local <tt>double</tt> variable access instructions</a>
+      <li><a href="more/LocalVarInst.html#ref">Local reference variable access instructions</a>
+      </ul>        
+    <li><a href="more/OpInst.html">Operational instructions</a>
+      <ul>         
+      <li><a href="more/OpInst.html#arith">Arithmetic instructions</a>
+      <li><a href="more/OpInst.html#logic">Bitwise logical instructions</a>
+      <li><a href="more/OpInst.html#shift">Shift instructions</a>
+      <li><a href="more/OpInst.html#cast">Primitive data casting instructions</a>
+      <li><a href="more/OpInst.html#iinc">Local variable increment instruction</a>
+      </ul>        
+    <li><a href="more/ControlInst.html">Control flow instructions</a>
+      <ul>         
+      <li><a href="more/ControlInst.html#goto">Unconditional branch instructions</a>
+      <li><a href="more/ControlInst.html#if">Conditional branch instructions</a>
+      <li><a href="more/ControlInst.html#cmp">Compare instructions</a>
+      <li><a href="more/ControlInst.html#switch">Switch instructions</a>
+      <li><a href="more/ControlInst.html#jsr">Subroutine instructions</a>
+      </ul>        
+    <li><a href="more/ObjectInst.html">Object-related instructions</a>
+      <ul>         
+      <li><a href="more/ObjectInst.html#create">Object creation instruction</a>
+      <li><a href="more/ObjectInst.html#access">Member variable access instructions</a>
+      <li><a href="more/ObjectInst.html#check">Object check instructions</a>
+      </ul>        
+    <li><a href="more/ArrayInst.html">Array-related instructions</a>
+      <ul>         
+      <li><a href="more/ArrayInst.html#create">Array creation instructions</a>
+      <li><a href="more/ArrayInst.html#access">Array element access instructions</a>
+      </ul>        
+    <li><a href="more/MethodInst.html">Method-related instructions</a>
+      <ul>         
+      <li><a href="more/MethodInst.html#invoke">Method invocation instructions</a>
+      <li><a href="more/MethodInst.html#return">Method return instructions</a>
+      </ul>        
+    <li><a href="more/SyncInst.html">Synchronization-related instructions</a>
+    <li><a href="more/ExpInst.html">Exception-related instructions</a>
+    </ul>          
+  <li><a href="more/BassLang.html#Label">Label</a>
+  </ul>            
+</ul>              
+                   
+</body>            
+</html>            

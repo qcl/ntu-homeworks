@@ -1,0 +1,23 @@
+.class logic
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method static void expr1(boolean, boolean, boolean)
+	iload #0
+	ifeq L17
+	iload #1
+	ifeq L17
+	iload #2
+	ifeq L17
+	ldc 1
+	istore #3
+	goto L19
+L17:
+	ldc 0
+	istore #3
+L19:
+	return
+

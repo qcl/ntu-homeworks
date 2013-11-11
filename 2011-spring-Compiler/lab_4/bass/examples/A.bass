@@ -1,0 +1,48 @@
+.class A
+
+.field int[][][][][] a
+.field int[][][][][][] b
+.field int[][][][][][][][][][][][][][] c
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method void m()
+	aload #0
+	ldc 1
+	ldc 2
+	ldc 3
+	ldc 4
+	ldc 5
+	multianewarray int[][][][][] 5-d
+	putfield int[][][][][] a
+	aload #0
+	ldc 1
+	ldc 2
+	ldc 3
+	ldc 4
+	ldc 5
+	ldc 6
+	multianewarray int[][][][][][] 6-d
+	putfield int[][][][][][] b
+	aload #0
+	ldc 1
+	ldc 2
+	ldc 3
+	ldc 4
+	ldc 5
+	ldc 6
+	ldc 7
+	ldc 8
+	ldc 9
+	ldc 1
+	ldc 2
+	ldc 3
+	ldc 4
+	ldc 5
+	multianewarray int[][][][][][][][][][][][][][] 14-d
+	putfield int[][][][][][][][][][][][][][] c
+	return
+

@@ -1,0 +1,73 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Bass Command</title>
+</head>
+<body background="../../../images/441blue.jpg" nosave>
+
+<h1>BASS -- Bytecode ASSembly language assembler</h1>
+<p>Bass is an assembler to translate 
+<a href="BassLang.html">bytecode assembly program</a> (<tt>.bass</tt> file)
+to the corresponding Java bytecode (<tt>.class</tt> file).
+
+<h3>Contents</h3>
+
+<ul>
+<li><a href="#Synopsis">Synopsis</a>
+<li><a href="#Options">Options</a>
+<li><a href="#Examples">Examples</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="Synopsis"><h2><hr>Synopsis</h2></a><dl><dd>
+
+<tt><b>bass</b> [ options ] bassFiles</tt>
+<p>Arguments may be in any order.
+<p>
+<dl><dd>
+  <dl>
+     <dt><tt>options</tt>
+         <dd>Command-line options.
+     <p>
+     <dt><tt>bassFiles</tt>
+         <dd>One or more source files to be assembled. 
+  </dl>
+</dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="Options"><h2><hr>Options</h2></a><dl><dd>
+
+<dl>
+    <dt><b>-cp</b> <i>classpathlist</i>
+        <dd>Specify a list of directories, JAR archives, and ZIP archives
+        where <b>bass</b> will look for referenced classes.
+        Class path entries are separated by semicolons (<tt>;</tt>).
+        The pre-defined class path consists of the current directory 
+        and the jdk boot class path.
+        If <b>-cp</b> is specified, <i>classpathlist</i> is used 
+        before the pre-defined class path.
+    <p>
+    <dt><b>-d</b> <i>directory</i>
+        <dd>Set the destination directory for class files.
+        The value <i>directory</i> can be absolute or relative 
+        to the current working directory. 
+        If a class is part of a package, <b>bass</b> puts the class file 
+        in a subdirectory reflecting the package name, 
+        creating directories as needed. 
+        For example, if you specify <b>-d c:\Bass\classes</b>
+        and the class is called <tt>lab441.bass.Main</tt>,
+        then the class file is called
+        <tt>c:\Bass\classes\lab441\bass\Main.class</tt>.
+        If <b>-d</b> is not specified, the destination directory is 
+        the current working directory.
+</dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="Examples"><h2><hr>Examples</h2></a><dl><dd>
+
+<p><tt>bass String.bass reflect\Field.bass</tt>
+<p><tt>bass -cp jdk\lib\tools.jar;myjavac\classes -d myjavac\classes *.bass</tt>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

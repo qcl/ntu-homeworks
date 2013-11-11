@@ -1,0 +1,22 @@
+{
+	int a, b;
+	scan(a, b);
+	if (a == b) {
+		println(a, " == ", b);
+	}
+	if (a != b) {
+		println(a, " != ", b);
+	}
+	if (a < b) {
+		println(a, " < ", b);
+	}
+	if (a <= b) {
+		println(a, " <= ", b);
+	}
+	if (a > b) {
+		println(a, " > ", b);
+	}
+	if (a >= b) {
+		println(a, " >= ", b);
+	}
+}

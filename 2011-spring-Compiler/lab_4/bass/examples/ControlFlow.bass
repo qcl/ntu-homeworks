@@ -1,0 +1,201 @@
+.class ControlFlow
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method static void ifStmt1(boolean, int)
+	iload #0
+	ifeq L7
+	iinc #1 by 1
+L7:
+	return
+
+.method static void ifStmt2(int, int)
+	iload #0
+	ifne L7
+	iinc #1 by 1
+L7:
+	return
+
+.method static void ifStmt3(int, int)
+	iload #0
+	ifeq L7
+	iinc #1 by 1
+L7:
+	return
+
+.method static void ifStmt4(int, int)
+	iload #0
+	ifge L7
+	iinc #1 by 1
+L7:
+	return
+
+.method static void ifStmt5(int, int)
+	iload #0
+	ifgt L7
+	iinc #1 by 1
+L7:
+	return
+
+.method static void ifStmt6(int, int)
+	iload #0
+	ifle L7
+	iinc #1 by 1
+L7:
+	return
+
+.method static void ifStmt7(int, int)
+	iload #0
+	iflt L7
+	iinc #1 by 1
+L7:
+	return
+
+.method static void ifStmt8(int, int)
+	iload #0
+	ldc 33
+	if_icmpne L9
+	iinc #1 by 1
+L9:
+	return
+
+.method static void ifStmt9(int, int)
+	iload #0
+	ldc 33
+	if_icmpeq L9
+	iinc #1 by 1
+L9:
+	return
+
+.method static void ifStmt10(int, int)
+	iload #0
+	ldc 33
+	if_icmpge L9
+	iinc #1 by 1
+L9:
+	return
+
+.method static void ifStmt11(int, int)
+	iload #0
+	ldc 33
+	if_icmpgt L9
+	iinc #1 by 1
+L9:
+	return
+
+.method static void ifStmt12(int, int)
+	iload #0
+	ldc 33
+	if_icmple L9
+	iinc #1 by 1
+L9:
+	return
+
+.method static void ifStmt13(int, int)
+	iload #0
+	ldc 33
+	if_icmplt L9
+	iinc #1 by 1
+L9:
+	return
+
+.method static void ifElseStmt1(boolean, int)
+	iload #0
+	ifeq L10
+	iinc #1 by 1
+	goto L13
+L10:
+	iinc #1 by 2
+L13:
+	return
+
+.method static void ifElseStmt2(boolean, int)
+	iload #0
+	ifne L10
+	iinc #1 by 1
+	goto L13
+L10:
+	iinc #1 by 2
+L13:
+	return
+
+.method static void ifElseStmt3(boolean, boolean, int)
+	iload #0
+	ifeq L14
+	iload #1
+	ifeq L14
+	iinc #2 by 1
+	goto L17
+L14:
+	iinc #2 by 2
+L17:
+	return
+
+.method static void ifElseStmt4(boolean, boolean, int)
+	iload #0
+	ifne L8
+	iload #1
+	ifeq L14
+L8:
+	iinc #2 by 1
+	goto L17
+L14:
+	iinc #2 by 2
+L17:
+	return
+
+.method static void ifElseStmt5(boolean, boolean, boolean, boolean, int)
+	iload #0
+	ifne L16
+	iload #1
+	ifeq L22
+	iload #2
+	ifne L16
+	iload #3
+	ifne L22
+L16:
+	iinc #4 by 1
+	goto L25
+L22:
+	iinc #4 by 2
+L25:
+	return
+
+.method static void whileStmt(boolean, int)
+L0:
+	iload #0
+	ifeq L10
+	iinc #1 by 1
+	goto L0
+L10:
+	return
+
+.method static void breakStmt(boolean, boolean, int)
+L0:
+	iload #0
+	ifeq L17
+	iload #1
+	ifeq L11
+	goto L17
+L11:
+	iinc #2 by 1
+	goto L0
+L17:
+	return
+
+.method static void continueStmt(boolean, boolean, int)
+L0:
+	iload #0
+	ifeq L17
+	iload #1
+	ifeq L11
+	goto L0
+L11:
+	iinc #2 by 1
+	goto L0
+L17:
+	return
+

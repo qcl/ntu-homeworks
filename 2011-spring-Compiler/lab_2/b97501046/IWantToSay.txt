@@ -1,0 +1,11 @@
+/*
+    NTU CSIE Compiler 2011 Lab 2
+    B97501046 Qing-Cheng Li
+    
+    IWantToSay.txt
+    Charset: utf-8
+*/
+希望測試資料裡面沒有"(null)"和"(eof)"這種lexeme，
+不過我想如果有這種lexeme會造成Output的混論吧，
+應該不會有所以就把(null)和(eof)變成我處理的string了。
+喔喔還有，就是文件表示可以不考慮不合法或不合理的文法，所以這部份我是真的沒有處理。

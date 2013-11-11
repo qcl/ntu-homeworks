@@ -1,0 +1,13 @@
+{
+	int a = 1;
+	int b = 0;
+	if(a|b){
+	    print("orz");
+	}
+	if(a&b){
+	    print("OTZ");
+	}
+	int c = 1000000;
+	char c = "Orz
+	ooo
+}

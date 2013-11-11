@@ -1,0 +1,267 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Control Flow Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Control Flow Instructions</h1>
+
+<h3>Contents</h3>
+
+<ul>
+  <li><a href="#goto">Unconditional branch instructions</a>
+  <li><a href="#if">Conditional branch instructions</a>
+  <li><a href="#cmp">Compare instructions</a>
+  <li><a href="#switch">Switch instructions</a>
+  <li><a href="#jsr">Subroutine instructions</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="goto"><h2><hr>Unconditional Branch Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>goto <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc5.html#goto">vmspec</a></font></sup><td><i>label</i><td>-<td>-<td ALIGN=LEFT>unconditional branch
+<tr ALIGN=CENTER><td ALIGN=LEFT>goto_w <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc5.html#goto_w">vmspec</a></font></sup><td><i>label</i><td>-<td>-<td ALIGN=LEFT>unconditional branch
+</table>
+
+<p><i>label</i> is the name of a Bass <a href="BassLang.html#Label">label</a>.
+
+<p><i>Examples</i><dl><dd><pre>
+    goto L1  ; (1)
+    xxx      ; bypass
+L1:
+    yyy      ; (2)
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="if"><h2><hr>Conditional Branch Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>ifeq <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ifcond">vmspec</a></font></sup><td><i>label</i><td>I<td>-<td ALIGN=LEFT>branch if top <tt>int</tt> = 0
+<tr ALIGN=CENTER><td ALIGN=LEFT>ifne <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ifcond">vmspec</a></font></sup><td><i>label</i><td>I<td>-<td ALIGN=LEFT>branch if top <tt>int</tt> <img src="chars/notequal.gif"> 0
+<tr ALIGN=CENTER><td ALIGN=LEFT>iflt <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ifcond">vmspec</a></font></sup><td><i>label</i><td>I<td>-<td ALIGN=LEFT>branch if top <tt>int</tt> < 0
+<tr ALIGN=CENTER><td ALIGN=LEFT>ifle <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ifcond">vmspec</a></font></sup><td><i>label</i><td>I<td>-<td ALIGN=LEFT>branch if top <tt>int</tt> <img src="chars/lt_equal.gif"> 0
+<tr ALIGN=CENTER><td ALIGN=LEFT>ifgt <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ifcond">vmspec</a></font></sup><td><i>label</i><td>I<td>-<td ALIGN=LEFT>branch if top <tt>int</tt> > 0
+<tr ALIGN=CENTER><td ALIGN=LEFT>ifge <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ifcond">vmspec</a></font></sup><td><i>label</i><td>I<td>-<td ALIGN=LEFT>branch if top <tt>int</tt> <img src="chars/gtequal.gif"> 0
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>if_icmpeq <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#if_icmpcond">vmspec</a></font></sup><td><i>label</i><td>I I<td>-<td ALIGN=LEFT>branch if 2nd <tt>int</tt> = top <tt>int</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>if_icmpne <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#if_icmpcond">vmspec</a></font></sup><td><i>label</i><td>I I<td>-<td ALIGN=LEFT>branch if 2nd <tt>int</tt> <img src="chars/notequal.gif"> top <tt>int</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>if_icmplt <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#if_icmpcond">vmspec</a></font></sup><td><i>label</i><td>I I<td>-<td ALIGN=LEFT>branch if 2nd <tt>int</tt> < top <tt>int</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>if_icmple <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#if_icmpcond">vmspec</a></font></sup><td><i>label</i><td>I I<td>-<td ALIGN=LEFT>branch if 2nd <tt>int</tt> <img src="chars/lt_equal.gif"> top <tt>int</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>if_icmpgt <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#if_icmpcond">vmspec</a></font></sup><td><i>label</i><td>I I<td>-<td ALIGN=LEFT>branch if 2nd <tt>int</tt> > top <tt>int</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>if_icmpge <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#if_icmpcond">vmspec</a></font></sup><td><i>label</i><td>I I<td>-<td ALIGN=LEFT>branch if 2nd <tt>int</tt> <img src="chars/gtequal.gif"> top <tt>int</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>ifnull <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ifnull">vmspec</a></font></sup><td><i>label</i><td>R<td>-<td ALIGN=LEFT>branch if top Object = <tt>null</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>ifnonnull <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ifnonnull">vmspec</a></font></sup><td><i>label</i><td>R<td>-<td ALIGN=LEFT>branch if top Object <img src="chars/notequal.gif"> <tt>null</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>if_acmpeq <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#if_acmpcond">vmspec</a></font></sup><td><i>label</i><td>R R<td>-<td ALIGN=LEFT>branch if 2nd object = top object
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>if_acmpne <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#if_acmpcond">vmspec</a></font></sup><td><i>label</i><td>R R<td>-<td ALIGN=LEFT>branch if 2nd object <img src="chars/notequal.gif"> top object
+</table>
+
+<p><i>label</i> is the name of a Bass <a href="BassLang.html#Label">label</a>.
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- a && b
+; both of a's type and b's type are boolean
+; assuming a and b are located at local variables #1 and #2
+    iload_1
+    ifeq L1    ; jump if a is false
+    iload_2
+    ifeq L1    ; jump if b is false
+    iconst_1   ; result is true
+    goto L2
+L1:
+    iconst_0   ; result is false
+L2:
+    ...
+
+; instructions for -- a || b
+    iload_1
+    ifne L3    ; jump if a is true
+    iload_2
+    ifne L3    ; jump if b is true
+    iconst_0   ; result is false
+    goto L4
+L3:
+    iconst_1   ; result is true
+L4:
+    ...
+
+; instructions for -- !a
+    iload_1
+    ifne L5    ; jump if a is true
+    iconst_1   ; result is true
+    goto L6
+L5:
+    iconst_0   ; result is false
+L6:
+    ...
+
+; instructions for -- if (i == n) { xxx } else { yyy }
+; both i's and n's type are int
+; assuming i and n are located at local variables #3 and #4
+    iload #3
+    iload #4
+    if_icmpne L7
+    xxx
+    goto L8
+L7:
+    yyy
+L8:
+    ...
+
+; instructions for -- while (i != n) { xxx }
+    goto L10
+L9:
+    xxx
+L10:
+    iload #3
+    iload #4
+    if_icmpne L9
+
+; instructions for -- do { xxx } while ( i < n);	
+L11:
+    xxx
+    iload #3
+    iload #4
+    if_icmplt L11
+
+; instructions for -- for (i = 0; i <= n; i++) { xxx }	
+    ldc 0
+    istore #3
+    goto L13
+L12:
+    xxx
+    iinc #3 by 1
+L13:
+    iload #3
+    iload #4
+    if_icmple L12
+
+; instructions for -- for (i = n; i >= 0; i--) { xxx }
+    iload #4
+    istore #3
+    goto L15
+L14:
+    xxx
+    iinc #3 by -1
+L15:
+    iload #3
+    ifge L14
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="cmp"><h2><hr>Compare Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>lcmp <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lcmp">vmspec</a></font></sup><td>&nbsp;<td>L L<td>I<td ALIGN=LEFT><tt>long</tt> compare
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>fcmpg <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fcmpop">vmspec</a></font></sup><td>&nbsp;<td>F F<td>I<td ALIGN=LEFT><tt>float</tt> compare; push 1 when NaN
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>fcmpl <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fcmpop">vmspec</a></font></sup><td>&nbsp;<td>F F<td>I<td ALIGN=LEFT><tt>float</tt> compare; push -1 when NaN 
+<tr ALIGN=CENTER><td ALIGN=LEFT>dcmpg <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dcmpop">vmspec</a></font></sup><td>&nbsp;<td>D D<td>I<td ALIGN=LEFT><tt>double</tt> compare; push 1 when NaN
+<tr ALIGN=CENTER><td ALIGN=LEFT>dcmpl <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dcmpop">vmspec</a></font></sup><td>&nbsp;<td>D D<td>I<td ALIGN=LEFT><tt>double</tt> compare; push -1 when NaN
+</table>
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- if (f >= 0.0F) { xxx }
+; f's type is float
+; assuminf f is located at local variable #1
+    fload #1    ; stack -- ... F
+    ldc 0.0F    ; stack -- ... F F
+    fcmpl       ; stack -- ... I (result of comparing 2 floats)
+    iflt L1     ; stack -- ...
+    xxx
+L1:
+    ...
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="switch"><h2><hr>Switch Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>lookupswitch <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lookupswitch">vmspec</a></font></sup><td>&nbsp;<td>I<td>-<td ALIGN=LEFT>switch (by key match)
+<tr ALIGN=CENTER><td ALIGN=LEFT>tableswitch <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc14.html#tableswitch">vmspec</a></font></sup><td>&nbsp;<td>I<td>-<td ALIGN=LEFT>switch (by index)
+</table>
+
+<p>Switch instructions are multi-line instructions.
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- switch (i) { 
+;                     case 3: xxx 
+;                     case 4: yyy 
+;                             break;
+;                     case 5: zzz }
+; assuming i is located at local variable #1
+    iload_1
+    tableswitch
+      case 3: L1
+      case 4: L2
+      case 5: L3
+      default: L4
+L1:
+    xxx
+L2:
+    yyy
+    goto L4
+L3:
+    zzz
+L4:
+    ...
+
+; instructions for -- switch (i) { 
+;                     case 30: xxx 
+;                     case 50: zzz  break;
+;                     default: zzz }
+    iload_1
+    lookupswitch
+      case 30: L5
+      case 50: L6
+      default: L7
+L5:
+    xxx
+L6:
+    yyy
+    goto L8
+L7:
+    zzz
+L8:
+    ...
+</pre></dl>
+
+</dl><!-- Sub-sub-Section .................................................. -->
+<h4> &nbsp; &nbsp; <font color="#FF0000">Generic version</font></h4><dl><dd>
+<p>For programmer's convenience, Bass supports the following generic instructions.
+Bass will automatically determine which instruction is the most suitable.
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>switch<td>&nbsp;<td>I<td>-<td ALIGN=LEFT>switch
+</table>
+
+</dl><!-- Section .......................................................... -->
+<a name="jsr"><h2><hr>Subroutine Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>jsr <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc7.html#jsr">vmspec</a></font></sup><td><i>label</i><td>-<td>A<td ALIGN=LEFT>jump subroutine
+<tr ALIGN=CENTER><td ALIGN=LEFT>jsr_w <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc7.html#jsr_w">vmspec</a></font></sup><td><i>label</i><td>-<td>A<td ALIGN=LEFT>jump subroutine
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ret <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc12.html#ret">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>-<td>-<td ALIGN=LEFT>return from subroutine
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-ret <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>-<td>-<td ALIGN=LEFT>return from subroutine
+</table>
+
+<p><i>label</i> is the name of a Bass <a href="BassLang.html#Label">label</a>.
+
+<i>var1</i> is an un-signed integer (range: 0~2<sup>8</sup>-1),
+<i>var2</i> is an un-signed integer (range: 0~2<sup>16</sup>-1).
+"<tt>#</tt>" is optional.
+White spaces between "<tt>#</tt>" and <i>var1</i> or <i>var2</i> are not permitted.
+
+<p><i>Examples</i><dl><dd><pre>
+    jsr L1      ; (1) stack -- ... A (100)
+    xxx         ; (6) assuming address = 100
+    ...         ; (7)
+L1:
+    astore #10  ; (2) stack -- ... [100 -> #10]
+    yyy         ; (3)
+    ...         ; (4)
+    ret #10     ; (5) stack -- ...
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+	int i;
+	int[5] a;
+	a[2] = 2;
+	a[3] = 3;
+	
+	print("[ ");
+	i = 0;
+	while (i < 5) {
+		print(a[i], " ");
+		i = i + 1;
+	}
+	println("]");
+}

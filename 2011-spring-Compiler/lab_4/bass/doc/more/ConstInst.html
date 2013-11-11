@@ -1,0 +1,181 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Constant Push Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Constant Push Instructions</h1>
+
+<h3>Contents</h3>
+
+<ul>
+  <li><a href="#int"><tt>int</tt> constant push instructions</a>
+  <li><a href="#long"><tt>long</tt> constant push instructions</a>
+  <li><a href="#float"><tt>float</tt> constant push instructions</a>
+  <li><a href="#double"><tt>double</tt> constant push instructions</a>
+  <li><a href="#ref">Reference constant push instructions</a>
+  <li><a href="#generic">Generic version</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="int"><h2><hr><tt>int</tt> Constant Push Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>iconst_m1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iconst_i">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>push <tt>int</tt> constant -1
+<tr ALIGN=CENTER><td ALIGN=LEFT>iconst_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iconst_i">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>push <tt>int</tt> constant 0
+<tr ALIGN=CENTER><td ALIGN=LEFT>iconst_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iconst_i">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>push <tt>int</tt> constant 1
+<tr ALIGN=CENTER><td ALIGN=LEFT>iconst_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iconst_i">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>push <tt>int</tt> constant 2
+<tr ALIGN=CENTER><td ALIGN=LEFT>iconst_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iconst_i">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>push <tt>int</tt> constant 3
+<tr ALIGN=CENTER><td ALIGN=LEFT>iconst_4 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iconst_i">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>push <tt>int</tt> constant 4
+<tr ALIGN=CENTER><td ALIGN=LEFT>iconst_5 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iconst_i">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>push <tt>int</tt> constant 5
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>bipush <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc1.html#bipush">vmspec</a></font></sup><td><i>int1</i><td>-<td>I<td ALIGN=LEFT>push byte-sized <tt>int</tt> value
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>sipush <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc13.html#sipush">vmspec</a></font></sup><td><i>int2</i><td>-<td>I<td ALIGN=LEFT>push 2-byte-sized <tt>int</tt> value
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ldc">vmspec</a></font></sup><td><i>int4</i><td>-<td>I<td ALIGN=LEFT>push 4-byte-sized <tt>int</tt> value
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc_w <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ldc_w">vmspec</a></font></sup><td><i>int4</i><td>-<td>I<td ALIGN=LEFT>push 4-byte-sized <tt>int</tt> value
+</table>
+
+<a name="arg-int4">
+<p><tt>int</tt> is a 32-bit integer.
+<i>int1</i>, <i>int2</i> and <i>int4</i> are 
+<a href="../../../../langspec/lexical.doc.html#100960">character literal</a>
+or <tt>int</tt> type <a href="../../../../langspec/lexical.doc.html#48282">integer literal</a>
+as defined in java language.
+If it is an integer literal, a prefixed positive sign (+) or negative sign (-) is permitted.
+White spaces between sign and number are not permitted.
+The value of <i>int1</i> is between -2<sup>7</sup> and +2<sup>7</sup>-1.
+The value of <i>int2</i> is between -2<sup>15</sup> and +2<sup>15</sup>-1.
+The value of <i>int4</i> is between -2<sup>31</sup> and +2<sup>31</sup>-1.
+
+<p><i>Examples</i><dl><dd><pre>
+ldc -1        ; i.e., "iconst_m1"
+ldc '\60'     ; i.e., "ldc '0'", "bipush 48"
+ldc '\u5927'  ; i.e., "ldc '¤j'", "sipush 22823"
+ldc 655360    ; i.e., "ldc 02400000", "ldc 0xA0000"
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="long"><h2><hr><tt>long</tt> Constant Push Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>lconst_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lconst_l">vmspec</a></font></sup><td>&nbsp;<td>-<td>L<td ALIGN=LEFT>push <tt>long</tt> constant 0L
+<tr ALIGN=CENTER><td ALIGN=LEFT>lconst_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lconst_l">vmspec</a></font></sup><td>&nbsp;<td>-<td>L<td ALIGN=LEFT>push <tt>long</tt> constant 1L
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ldc2_w <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ldc2_w">vmspec</a></font></sup><td><i>long8</i><td>-<td>L<td ALIGN=LEFT>push a <tt>long</tt> value
+</table>
+
+<a name="arg-long">
+<p><tt>long</tt> is a 64-bit integer.
+<i>long8</i> is a <tt>long</tt> type 
+<a href="../../../../langspec/lexical.doc.html#48282">integer literal</a>
+as defined in java language.
+A prefixed positive sign (+) or negative sign (-) is permitted.
+White spaces between sign and number are not permitted.
+Its value is between -2<sup>63</sup> and +2<sup>63</sup>-1.
+
+<p><i>Examples</i><dl><dd><pre>
+ldc2_w 1L            ; i.e., "lconst_1"
+ldc2_w +0xcafebabeL  ; i.e., "ldc2_w 3405691582L"
+ldc2_w -01234567L    ; i.e., "ldc2_w -342391L"
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="float"><h2><hr><tt>float</tt> Constant Push Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>fconst_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fconst_f">vmspec</a></font></sup><td>&nbsp;<td>-<td>F<td ALIGN=LEFT>push <tt>float</tt> constant 0.0F
+<tr ALIGN=CENTER><td ALIGN=LEFT>fconst_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fconst_f">vmspec</a></font></sup><td>&nbsp;<td>-<td>F<td ALIGN=LEFT>push <tt>float</tt> constant 1.0F
+<tr ALIGN=CENTER><td ALIGN=LEFT>fconst_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fconst_f">vmspec</a></font></sup><td>&nbsp;<td>-<td>F<td ALIGN=LEFT>push <tt>float</tt> constant 2.0F
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ldc <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ldc">vmspec</a></font></sup><td><i>float4</i><td>-<td>F<td ALIGN=LEFT>push a <tt>float</tt> value
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ldc_w <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ldc_w">vmspec</a></font></sup><td><i>float4</i><td>-<td>F<td ALIGN=LEFT>push a <tt>float</tt> value
+</table>
+
+<a name="arg-float">
+<p><tt>float</tt> is a 32-bit floating-point.
+<i>float4</i> is a <tt>float</tt> type 
+<a href="../../../../langspec/lexical.doc.html#230798">floating-point literal</a>
+as defined in java language.
+A prefixed positive sign (+) or negative sign (-) is permitted.
+White spaces between sign and number are not permitted.
+
+<p><i>Examples</i><dl><dd><pre>
+ldc 1.0F        ; i.e., "fconst_1"
+ldc -12.34E+5F
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="double"><h2><hr><tt>double</tt> Constant Push Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>dconst_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dconst_d">vmspec</a></font></sup><td>&nbsp;<td>-<td>D<td ALIGN=LEFT>push <tt>double</tt> constant 0.0
+<tr ALIGN=CENTER><td ALIGN=LEFT>dconst_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dconst_d">vmspec</a></font></sup><td>&nbsp;<td>-<td>D<td ALIGN=LEFT>push <tt>double</tt> constant 1.0
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ldc2_w <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ldc2_w">vmspec</a></font></sup><td><i>double8</i><td>-<td>D<td ALIGN=LEFT>push a <tt>double</tt> value
+</table>
+
+<a name="arg-double">
+<p><tt>double</tt> is a 64-bit floating-point.
+<i>double8</i> is a <tt>double</tt> type 
+<a href="../../../../langspec/lexical.doc.html#230798">floating-point literal</a>
+as defined in java language.
+A prefixed positive sign (+) or negative sign (-) is permitted.
+White spaces between sign and number are not permitted.
+
+<p><i>Examples</i><dl><dd><pre>
+ldc2_w 1.0         ; i.e., "dconst_1"
+ldc2_w -12.34E+5D
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="ref"><h2><hr>Reference Constant Push Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>aconst_null <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#aconst_null">vmspec</a></font></sup><td>&nbsp;<td>-<td>R<td ALIGN=LEFT>push a <tt>null</tt> object
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ldc <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ldc">vmspec</a></font></sup><td><i>string</i><td>-<td>R<td ALIGN=LEFT>push a <tt>String</tt> object
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ldc_w <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ldc_w">vmspec</a></font></sup><td><i>string</i><td>-<td>R<td ALIGN=LEFT>push a <tt>String</tt> object
+</table>
+
+<a name="arg-string">
+<p>Java's reference variable is a 32-bit space,
+storing <tt>null</tt> or an address which is pointed to an object.
+The only constant object, which can be pushed by <b>ldc</b> instruction, is String object.
+<i>string</i> is a 
+<a href="../../../../langspec/lexical.doc.html#101084">string literal</a> as defined in java language.
+<!--
+A long string literal can be written as concatenation of shorter pieces
+and span more than one line.
+In this case, the concatenation operator (+) cannot be placed in the front of any succesive line. 
+-->
+
+<p><i>Examples</i><dl><dd><pre>
+ldc "Hello"
+ldc ""                         ; a String object consisting of 0 character
+ldc "He said, \"I'm Bill.\""   ; a String object consisting of 20 characters
+ldc "111\b222\t333\f444\n555"  ; a String object with <a href="../../../../langspec/lexical.doc.html#101089">escape characters</a>
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="generic"><h2><hr><font color="#FF0000">Generic Version</font></h2><dl><dd>
+
+<p>For programmer's convenience, Bass supports the following generic instructions.
+Bass will automatically determine which instruction is the most suitable.
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc<td><i>int4</i><td>-<td>I<td ALIGN=LEFT>push an <tt>int</tt> value
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc<td><i>long8</i><td>-<td>L<td ALIGN=LEFT>push a <tt>long</tt> value
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc<td><i>float4</i><td>-<td>F<td ALIGN=LEFT>push a <tt>float</tt> value
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc<td><i>double8</i><td>-<td>D<td ALIGN=LEFT>push a <tt>double</tt> value
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc<td><i>string</i><td>-<td>R<td ALIGN=LEFT>push a <tt>String</tt> object
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc<td><tt>null</tt><td>-<td>R<td ALIGN=LEFT>push a <tt>null</tt> object
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc<td><tt>true</tt><td>-<td>I<td ALIGN=LEFT>push <tt>int</tt> constant 1
+<tr ALIGN=CENTER><td ALIGN=LEFT>ldc<td><tt>false</tt><td>-<td>I<td ALIGN=LEFT>push <tt>int</tt> constant 0
+</table>
+
+<p><a href="#arg-int4"><i>int4</i></a>, 
+<a href="#arg-long"><i>long8</i></a>, 
+<a href="#arg-float"><i>float4</i></a>, 
+<a href="#arg-double"><i>double8</i></a> and
+<a href="#arg-string"><i>string</i></a>
+are defined as above. 
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

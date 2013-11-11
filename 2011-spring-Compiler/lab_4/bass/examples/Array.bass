@@ -1,0 +1,136 @@
+.class Array
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method static void creation1()
+	ldc 2
+	newarray int
+	astore #0
+	return
+
+.method static void creation2()
+	ldc 3
+	ldc 4
+	multianewarray int[][] 2-d
+	astore #0
+	return
+
+.method static void creation3()
+	ldc 5
+	ldc 6
+	ldc 7
+	multianewarray int[][][] 3-d
+	astore #0
+	return
+
+.method static void creation4()
+	ldc 8
+	ldc 9
+	multianewarray int[][][] 2-d
+	astore #0
+	return
+
+.method static void access1(int[])
+	aload #0
+	ldc 2
+	iaload
+	istore #1
+	return
+
+.method static void access2(int[])
+	aload #0
+	ldc 3
+	ldc 99
+	iastore
+	return
+
+.method static void access3(int[])
+	aload #0
+	ldc 4
+	aload #0
+	ldc 5
+	iaload
+	iastore
+	return
+
+.method static void access1(int[][])
+	aload #0
+	ldc 2
+	aaload
+	ldc 3
+	iaload
+	istore #1
+	return
+
+.method static void access2(int[][])
+	aload #0
+	ldc 4
+	aaload
+	ldc 5
+	ldc 99
+	iastore
+	return
+
+.method static void access3(int[][])
+	aload #0
+	ldc 6
+	aaload
+	ldc 7
+	aload #0
+	ldc 8
+	aaload
+	ldc 9
+	iaload
+	iastore
+	return
+
+.method static void access3(int[][][])
+	aload #0
+	ldc 2
+	aaload
+	ldc 3
+	aaload
+	ldc 4
+	aload #0
+	ldc 7
+	aaload
+	ldc 8
+	aaload
+	ldc 9
+	iaload
+	iastore
+	return
+
+.method static int[] saxpy(int, int[], int[])
+	aload #1
+	arraylength
+	newarray int
+	astore #3
+	ldc 0
+	istore #4
+L8:
+	iload #4
+	aload #1
+	arraylength
+	if_icmpge L36
+	aload #3
+	iload #4
+	iload #0
+	aload #1
+	iload #4
+	iaload
+	imul
+	aload #2
+	iload #4
+	iaload
+	iadd
+	iastore
+	iinc #4 by 1
+	goto L8
+L36:
+	aload #3
+	areturn
+

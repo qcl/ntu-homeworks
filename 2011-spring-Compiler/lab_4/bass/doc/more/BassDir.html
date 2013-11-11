@@ -1,0 +1,315 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Directives</title>
+</head>
+<body background="../../../images/441green.jpg" nosave>
+
+<h1>Directives</h1>
+
+<p>Directive statements are used to give meta-level information.
+Directive statements consist of a directive name and zero or more parameters.
+All directive names start with a period (.) character, followd immediately by a keyword.
+A directive name should be the first token on a line.
+
+<h3>Contents</h3>
+
+<ul>
+<li><a href="#file">File level directives</a>
+  <ul>
+  <li><a href="#package"><tt>.package</tt> directive</a>
+  <li><a href="#import"><tt>.import</tt> directive</a>
+  </ul>
+<li><a href="#class">Class level directives</a>
+  <ul>
+  <li><a href="#class0"><tt>.class</tt> directive</a>
+  <li><a href="#interface"><tt>.interface</tt> directive</a>
+  <li><a href="#extends"><tt>.extends</tt> directive</a>
+  <li><a href="#implements"><tt>.implements</tt> directive</a>
+  </ul>
+<li><a href="#member">Member level directives</a>
+  <ul>
+  <li><a href="#field"><tt>.field</tt> directive</a>
+  <li><a href="#method"><tt>.method</tt> directive</a>
+  <li><a href="#throws"><tt>.throws</tt> directive</a>
+  </ul>
+<li><a href="#inst">Instruction level directives</a>
+  <ul>
+  <li><a href="#try"><tt>.try</tt> &amp; <tt>.tryend</tt> directives</a>
+  <li><a href="#catch"><tt>.catch</tt> directive</a>
+  </ul>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="file"><h2><hr>File Level Directives</h2><dl><dd>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="package"><h3><tt>.package</tt> directive</h3><dl><dd>
+
+<p><i>Format</i><dl><dd>
+<p><tt>.package</tt> <i>pkg</i>
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+<p>The purpose of <tt>.package</tt> directive is 100% the same as the
+<a href="../../../../langspec/packages.doc.html#26619">package declaration</a>
+of java language.
+<p>A <tt>.package</tt> directive specifies the
+<a href="../../../../langspec/names.doc.html#22349">fully qualified name</a>,
+<i>pkg</i>, of the package to which all classes (interfaces) of a file belong.
+If a class named "<tt>C</tt>" is declared in a file with directive "<tt>.package P</tt>",
+then the fully qualified name of the class is "<tt>P.C</tt>".
+<p>If <tt>.package</tt> directive exists, it must be the first directive of a file.
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.package my.pkg   ; decalare package "my.pkg"
+.class MyBitSet   ; the fully qualified name of
+                  ; this class is "my.pkg.MyBitSet"
+</pre></dl>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="import"><h3><tt>.import</tt> directive</h3><dl><dd>
+
+<p><i>Format</i><dl><dd>
+<p><tt>.import</tt> <i>cls</i>
+<p><tt>.import</tt> <i>pkg</i><tt>.*</tt>
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+<p>The purpose of <tt>.import</tt> directive is 100% the same as the
+<a href="../../../../langspec/packages.doc.html#70209">import declaration</a>
+of java language.
+<p>An <tt>.import</tt> directive allows a class (interface) 
+declared in another package to be referred to by a 
+<a href="../../../../langspec/names.doc.html#21810">simple name</a>.
+Without the use of an appropriate <tt>.import</tt> directive, 
+the only way to refer to a class (interface) in another package is to use its
+<a href="../../../../langspec/names.doc.html#21811">fully qualified name</a>.
+<p>Format 1 imports a single class (interface), 
+by mentioning its fully qualified name, <i>cls</i>.
+Format 2 imports all the public classes (interfaces) of a package 
+named by a fully qualified name <i>pkg</i>.
+<p>Each bass file automatically imports each of the public classes (interfaces)
+declared in the predefined package "java.lang".
+<p>If <tt>.import</tt> directives exist, they must follow
+<tt>.package</tt> directive immediately,
+or they must be the first directives of a file.
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.package my.pkg
+.import java.io.*
+.import java.util.BitSet
+.class MyBitSet            ; this class is "my.pkg.MyBitSet"
+.extends BitSet            ; super class is "java.util.BitSet"
+.implements Cloneable      ; interfaces are "java.lang.Cloneable"
+.implements Serializable   ; and "java.io.Serializable"
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="class"><h2><hr>Class Level Directives</h2><dl><dd>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="class0"><h3><tt>.class</tt> directive</h3><dl><dd>
+<!--
+? .class accessFlags className 
+? 如 .class public HelloWorld。 
+? 與 .interface directive二擇一 
+? 配合前面 .package例子，byteCode中this_class將指到
+“test.example.HelloWorld”。產生的byteCode亦需放到相對的subdirectory內。 
+
+
+? accessFlags 可以是 public, final, abstract。 
+? Q: ACC_SUPER要不要由ntujas自動加入？ yes
+-->
+
+<p><i>Format</i><dl><dd>
+.....
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+<p><a name="class-dir-scope">
+The scope of a class is from its <tt>.class</tt> directive
+to the next <tt>.class</tt> directive, <tt>.interface</tt> directive or End-Of-File.
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.....
+</pre></dl>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="interface"><h3><tt>.interface</tt> directive</h3><dl><dd>
+<!--
+? .interface accessFlags interfaceName 
+? 如 .interface public MyInterface。 
+? 與 .class directive二擇一。 
+? 配合前面 .package例子，byteCode中this_class將指到
+“test/example/MyInterface”。產生的byteCode亦需放到相對的subdirectory內。 
+? byteCode中access_flags將自動加入ACC_INTERFACE。 
+? accessFlags 可以是 public, super, abstract。 
+? Q: 哪些flags可由ntujas自動加入？ 
+-->
+
+
+<p><i>Format</i><dl><dd>
+.....
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+<p>The scope of an interface is from its <tt>.interface</tt> directive
+to the next <tt>.class</tt> directive, <tt>.interface</tt> directive or End-Of-File.
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.....
+</pre></dl>
+
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="extends"><h3><tt>.extends</tt> directive</h3><dl><dd>
+<!--
+? .extends className 
+? 如 .extends Thread。 
+? 如 .extends java.lang.Thread。 
+? byteCode中super _class將指到 “java/lang/Thread” 。 
+? 假如不寫的話，default是 “java/lang/Object”。 
+-->
+<p><i>Format</i><dl><dd>
+.....
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+.....
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.....
+</pre></dl>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="implements"><h3><tt>.implements</tt> directive</h3><dl><dd>
+<!--
+? .implements interfaceName 
+? 如 .implements Runnable。 
+? byteCode中某個interfaces[]將指到 “java/lang/Runnable”。 
+? 可以接連寫數個 .implements directives。ntujas將自動算出byteCode中的interfaces_count。 
+-->
+<p><i>Format</i><dl><dd>
+.....
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+.....
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.....
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="member"><h2><hr>Member Level Directives</h2><dl><dd>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="field"><h3><tt>.field</tt> directive</h3><dl><dd>
+<!--
+? .field accessFlags type variableName [= value] 
+? 如 .field protected int sum = 0 
+? 如 .field public static String s 
+? accessFlags 可以是public, protected, private, static, final, volatile, transient。 
+? ntujas將幫interface的fields自動冠上public, static, final。 
+? ntujas要檢查interface的fields不可冠protected, private, volatile, transient。 
+? value 的格式待寫。 
+-->
+<p><i>Format</i><dl><dd>
+.....
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+.....
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.....
+</pre></dl>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="method"><h3><tt>.method</tt> directive</h3><dl><dd>
+<!--
+? .method accessFlags returnType methodName(parameterTypeList) 
+? 如 .method public void output(File, int[])。 
+? 與 .end method配對使用。 
+? accessFlags 可以是 public, protected, private, static, final, synchronized, native, abstract。 
+? ntujas將幫interface的methods自動冠上public, abstract。 
+? ntujas要檢查interface的methods不可冠protected, private, static, final, synchronized, native。 
+? 假如沒有任何constructor，ntujas將自動加入default constructor。 
+-->
+<p><i>Format</i><dl><dd>
+.....
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+<p>The scope of a method is from its <tt>.method</tt> directive
+to the next <tt>.field</tt> directive, <tt>.method</tt> directive or 
+<a href="#class-dir-scope">end of the class</a>.
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.....
+</pre></dl>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="throws"><h3><tt>.throws</tt> directive</h3><dl><dd>
+<!--
+? .throws exceptionName 
+? 如 .throws IOException。 
+? byteCode中某個exception_index_table []將指到 “java/io/IOException”。 
+? 可以接連寫數個 . throws directives。ntujas將自動算出byteCode中的number_of_exceptions。 
+-->
+<p><i>Format</i><dl><dd>
+.....
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+.....
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.....
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="inst"><h2><hr>Instruction Level Directives</h2><dl><dd>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="try"><h3><tt>.try</tt> &amp; <tt>.tryend</tt> directives</h3><dl><dd>
+<p><i>Format</i><dl><dd>
+.....
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+.....
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.....
+</pre></dl>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="catch"><h3><tt>.catch</tt> directive</h3><dl><dd>
+
+<p><i>Format</i><dl><dd>
+.....
+</dl>
+
+<p><i>Desciption</i><dl><dd>
+.....
+</dl>
+
+<p><i>Examples</i><dl><dd><pre>
+.....
+</pre></dl>
+
+</dl><!-- Sub-Section ...................................................... -->
+</body>
+</html>

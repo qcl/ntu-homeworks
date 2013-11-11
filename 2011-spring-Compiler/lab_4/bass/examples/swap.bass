@@ -1,0 +1,38 @@
+.class swap
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method public static void main(String[])
+	invokestatic int readInt() @ StdIO
+	istore #1
+	invokestatic int readInt() @ StdIO
+	istore #2
+	ldc "before swap: "
+	invokestatic void print(String) @ StdIO
+	iload #1
+	invokestatic void print(int) @ StdIO
+	ldc " "
+	invokestatic void print(String) @ StdIO
+	iload #2
+	invokestatic void print(int) @ StdIO
+	invokestatic void println() @ StdIO
+	iload #1
+	istore #3
+	iload #2
+	istore #1
+	iload #3
+	istore #2
+	ldc "after swap: "
+	invokestatic void print(String) @ StdIO
+	iload #1
+	invokestatic void print(int) @ StdIO
+	ldc " "
+	invokestatic void print(String) @ StdIO
+	iload #2
+	invokestatic void print(int) @ StdIO
+	invokestatic void println() @ StdIO
+	return
+

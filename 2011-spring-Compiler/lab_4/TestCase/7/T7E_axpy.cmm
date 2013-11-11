@@ -1,0 +1,42 @@
+{
+	int i;
+	int size;
+	int a;
+	int[10] x, y;
+	
+	scan(size, a);
+	
+	println(a);
+	
+	println("*");
+	
+	i = 0;
+	print("[ ");
+	while (i < size) {
+		scan(x[i]);
+		print(x[i], " ");
+		i = i + 1;
+	}
+	println("]");
+	
+	println("+");
+	
+	i = 0;
+	print("[ ");
+	while (i < size) {
+		scan(y[i]);
+		print(y[i], " ");
+		i = i + 1;
+	}
+	println("]");
+	
+	println("=");
+	
+	i = 0;
+	print("[ ");
+	while (i < size) {
+		print(a * x[i] + y[i], " ");
+		i = i + 1;
+	}
+	println("]");
+}

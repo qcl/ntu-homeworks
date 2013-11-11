@@ -1,0 +1,13 @@
+組譯器 bass 用法:
+	java -jar bass.jar sumAbs.bass
+
+反組譯器 soprano 用法:
+	java -jar soprano.jar sumAbs.class
+
+註：doc\ 裡面的文件中，bass 與 soprano 的用法分別是
+	bass [options] bassFiles
+	soprano [options] classFiles
+    那是基於有設定 bass/soprano command 的前提。
+    2011重新打包的版本，請改用上述 -jar 的用法。
+    
+clchen 20110429

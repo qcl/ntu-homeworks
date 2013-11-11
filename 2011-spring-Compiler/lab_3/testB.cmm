@@ -1,0 +1,20 @@
+{
+	int a, b, c;
+	scan(a, b);
+	c = a + b;
+	print(a, "+", b, "=", c);
+	c = a - b;
+	print(a, "-", b, "=", c);
+	c = b - a;
+	print(b, "-", a, "=", c);
+	c = a * 20;
+	print(a, "*", 20, "=", c);
+	c = b / 3;
+	print(b, "/", 3, "=", c);
+	c = + a;
+	print("positive ", a, "=", c);
+	c = - b;
+	print("negative ", b, "=", c);
+	c = (12345);
+	print("(12345)=", c);
+}

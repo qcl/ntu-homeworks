@@ -1,0 +1,42 @@
+.class ArithExpr
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method static void expr1(int, int)
+	iload #0
+	iload #1
+	iadd
+	istore #2
+	return
+
+.method static void expr2(int, int, int)
+	iload #0
+	iload #1
+	iload #2
+	imul
+	iadd
+	istore #3
+	return
+
+.method static void expr3(int, int, int)
+	iload #0
+	iload #1
+	imul
+	iload #2
+	iadd
+	istore #3
+	return
+
+.method static void expr4(int, int, int)
+	iload #0
+	ineg
+	iload #1
+	iload #2
+	iadd
+	imul
+	istore #3
+	return
+

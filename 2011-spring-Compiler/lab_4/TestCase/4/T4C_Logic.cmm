@@ -1,0 +1,29 @@
+{
+	int a, b, c;
+	scan(a, b, c);
+	println("inputs are: ", a, " ", b, " ", c);
+	
+	if (a == 10 && b == 10 && c == 10) {
+		println("all inputs are 10");
+	}
+	
+	if (a == 10 || b == 10 || c == 10) {
+		println("at least one of inputs is 10");
+	}
+	
+	if (a == 10 && b == 10 || c == 10) {
+		println("both of the first two are 10  OR  the last one is 10");
+	}
+	
+	if (a == 10 || b == 10 && c == 10) {
+		println("the first one is 10  OR  both of the last two are 10");
+	}
+	
+	if (a == 10 && [b == 10 || c == 10]) {
+		println("the first one is 10  AND  at least one of the last two is 10");
+	}
+	
+	if ([a == 10 || b == 10] && c == 10) {
+		println("at least one of the first two is 10  AND  the last one is 10");
+	}
+}

@@ -1,0 +1,18 @@
+{
+	int a;
+	scan(a);
+	
+	if (a > 10) {
+		println("10 < ", a);
+		if (a > 15) {
+			println("15 < ", a);
+		} else {
+			println("10 < ", a, " <= 15");
+		}
+	} else {
+		println(a, " <= 10");
+		if (a > 5) {
+			println("5 < ", a, " <= 10");
+		}
+	}
+}

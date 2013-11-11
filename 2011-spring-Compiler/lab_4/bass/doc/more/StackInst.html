@@ -1,0 +1,43 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Stack Manipulation Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Stack Manipulation Instructions</h1><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>pop <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc11.html#pop">vmspec</a></font></sup><td>&nbsp;<td>1<td>-<td ALIGN=LEFT>pop top element
+<tr ALIGN=CENTER><td ALIGN=LEFT>pop2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc11.html#pop2">vmspec</a></font></sup><td>&nbsp;<td>2 1<td>-<td ALIGN=LEFT>pop top 2 elements
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dup <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dup">vmspec</a></font></sup><td>&nbsp;<td>1<td>1 1<td ALIGN=LEFT>duplicate top element
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dup_x1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dup_x1">vmspec</a></font></sup><td>&nbsp;<td>2 1<td>1 2 1<td ALIGN=LEFT>duplicate top element; put 2 down
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dup_x2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dup_x2">vmspec</a></font></sup><td>&nbsp;<td>3 2 1<td>1 3 2 1<td ALIGN=LEFT>duplicate top element; put 3 down
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dup2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dup2">vmspec</a></font></sup><td>&nbsp;<td>2 1<td>2 1 2 1<td ALIGN=LEFT>duplicate top 2 elements
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dup2_x1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dup2_x1">vmspec</a></font></sup><td>&nbsp;<td>3 2 1<td>2 1 3 2 1<td ALIGN=LEFT>duplicate top 2 elements; put 3 down
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dup2_x2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dup2_x2">vmspec</a></font></sup><td>&nbsp;<td>4 3 2 1<td>2 1 4 3 2 1<td ALIGN=LEFT>duplicate top 2 elements; put 4 down
+<tr ALIGN=CENTER><td ALIGN=LEFT>swap <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc13.html#swap">vmspec</a></font></sup><td>&nbsp;<td>2 1<td>1 2<td ALIGN=LEFT>swap top 2 elements
+</table>
+
+<p>The numbers 1, 2, 3 or 4 on pop/push columns
+represents one "unit" of operans stack.
+JVM opetand stack has an associated depth,
+where a value of type <tt>long</tt> or <tt>double</tt> contributes two units to the depth
+and a value of any other type contributes one unit.
+Stack manipulation instructions cannot be used to modify or break up individual values. 
+Please see <a href="../../../../vmspec/Overview.doc.html#28851">vmspec Sec. 3.6.2</a>.
+
+<p><i>Examples</i><dl><dd><pre>
+ldc 1    ; stack -- 1
+ldc 2L   ; stack -- 1, 2L
+dup2_x1  ; stack -- 2L, 1, 2L
+pop2     ; stack -- 2L, 1
+ldc 3    ; stack -- 2L, 1, 3
+swap     ; stack -- 2L, 3, 1
+pop      ; stack -- 2L, 3
+dup_x2   ; stack -- 3, 2L, 3
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

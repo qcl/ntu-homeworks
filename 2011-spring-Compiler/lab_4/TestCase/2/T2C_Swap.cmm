@@ -1,0 +1,9 @@
+{
+	int a, b, tmp;
+	scan(a, b);
+	println("before swap: ", a, " ", b);
+	tmp = a;
+	a = b;
+	b = tmp;
+	println("after swap: ", a, " ", b);
+}

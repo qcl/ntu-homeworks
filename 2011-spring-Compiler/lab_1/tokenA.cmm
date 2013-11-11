@@ -1,0 +1,38 @@
+/* test for all tokens */
+!
+(
+)
+*
++
+,
+-
+/
+;
+<
+=
+>
+[
+]
+{
+}
+&&
+||
+<=
+>=
+==
+!=
+	int
+	if
+	else
+	while
+	break
+	continue
+	scan
+	print
+    in
+    into
+    H1N1
+    computer_science
+123
+"hello"
+"\"hello world\\\""

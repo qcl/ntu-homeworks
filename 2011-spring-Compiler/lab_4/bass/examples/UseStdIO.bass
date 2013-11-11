@@ -1,0 +1,17 @@
+.class UseStdIO
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method public static void main(String[])
+	invokestatic int readInt() @ StdIO
+	istore #1
+	iload #1
+	invokestatic void print(int) @ StdIO
+	ldc "hello"
+	invokestatic void print(String) @ StdIO
+	invokestatic void println() @ StdIO
+	return
+

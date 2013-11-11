@@ -1,0 +1,9 @@
+{
+	int a;
+	a = 123;
+	println("First number is: ", a);
+	a = -123;
+	println("Second number is: ", a);
+	a = +123;
+	println("Third number is: ", a);
+}

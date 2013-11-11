@@ -1,0 +1,164 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Bass Language</title>
+</head>
+<body background="../../../images/441green.jpg" nosave>
+
+<h1>Bass language</h1>
+
+<p>Bass programs consist of a sequence of line-separated statements.
+Line separator is either a carriage-return character ('\r', 0x0D) 
+or a newline character ('\n', 0x0A).
+In addition, a carriage-return character followed immediately by a newline character
+is treated as a single line separator.
+<p>There are three types of statement:
+<ul>
+<li>directives
+<li>instructions
+<li>labels
+</ul>
+<p>Directives and instructions can take parameters.
+These parameters are placed on the same line as the directives or instructions,
+separated by white spaces (0x00 through 0x20, excluding 0x0D and 0x0A).
+
+<h3>Contents</h3>
+
+<ul>
+<li><a href="#Comment">Comment</a>
+<li><a href="BassDir.html">Directives</a>
+  <ul>
+  <li><a href="BassDir.html#file">File level directives</a>
+    <ul>
+    <li><a href="BassDir.html#package"><tt>.package</tt> directive</a>
+    <li><a href="BassDir.html#import"><tt>.import</tt> directive</a>
+    </ul>
+  <li><a href="BassDir.html#class">Class level directives</a>
+    <ul>
+    <li><a href="BassDir.html#class0"><tt>.class</tt> directive</a>
+    <li><a href="BassDir.html#interface"><tt>.interface</tt> directive</a>
+    <li><a href="BassDir.html#extends"><tt>.extends</tt> directive</a>
+    <li><a href="BassDir.html#implements"><tt>.implements</tt> directive</a>
+    </ul>
+  <li><a href="BassDir.html#member">Member level directives</a>
+    <ul>
+    <li><a href="BassDir.html#field"><tt>.field</tt> directive</a>
+    <li><a href="BassDir.html#method"><tt>.method</tt> directive</a>
+    <li><a href="BassDir.html#throws"><tt>.throws</tt> directive</a>
+    </ul>
+  <li><a href="BassDir.html#inst">Instruction level directives</a>
+    <ul>
+    <li><a href="BassDir.html#try"><tt>.try</tt> &amp; <tt>.tryend</tt> directives</a>
+    <li><a href="BassDir.html#catch"><tt>.catch</tt> directive</a>
+    </ul>
+  </ul>
+<li><a href="BassInst.html">Instructions</a>
+  <ul>
+  <li><a href="BassInst.html#nop">No-operation instruction</a>
+  <li><a href="ConstInst.html">Constant push instructions</a>
+    <ul>
+    <li><a href="ConstInst.html#int"><tt>int</tt> constant push instructions</a>
+    <li><a href="ConstInst.html#long"><tt>long</tt> constant push instructions</a>
+    <li><a href="ConstInst.html#float"><tt>float</tt> constant push instructions</a>
+    <li><a href="ConstInst.html#double"><tt>double</tt> constant push instructions</a>
+    <li><a href="ConstInst.html#ref">Reference constant push instructions</a>
+    <li><a href="ConstInst.html#generic">Generic version</a>
+    </ul>
+  <li><a href="StackInst.html">Stack manipulation instructions</a>
+  <li><a href="LocalVarInst.html">Local variable access instructions</a>
+    <ul>
+    <li><a href="LocalVarInst.html#int">Local <tt>int</tt> variable access instructions</a>
+    <li><a href="LocalVarInst.html#long">Local <tt>long</tt> variable access instructions</a>
+    <li><a href="LocalVarInst.html#float">Local <tt>float</tt> variable access instructions</a>
+    <li><a href="LocalVarInst.html#double">Local <tt>double</tt> variable access instructions</a>
+    <li><a href="LocalVarInst.html#ref">Local reference variable access instructions</a>
+    </ul>
+  <li><a href="OpInst.html">Operational instructions</a>
+    <ul>
+    <li><a href="OpInst.html#arith">Arithmetic instructions</a>
+    <li><a href="OpInst.html#logic">Bitwise logical instructions</a>
+    <li><a href="OpInst.html#shift">Shift instructions</a>
+    <li><a href="OpInst.html#cast">Primitive data casting instructions</a>
+    <li><a href="OpInst.html#iinc">Local variable increment instruction</a>
+    </ul>
+  <li><a href="ControlInst.html">Control flow instructions</a>
+    <ul>
+    <li><a href="ControlInst.html#goto">Unconditional branch instructions</a>
+    <li><a href="ControlInst.html#if">Conditional branch instructions</a>
+    <li><a href="ControlInst.html#cmp">Compare instructions</a>
+    <li><a href="ControlInst.html#switch">Switch instructions</a>
+    <li><a href="ControlInst.html#jsr">Subroutine instructions</a>
+    </ul>
+  <li><a href="ObjectInst.html">Object-related instructions</a>
+    <ul>
+    <li><a href="ObjectInst.html#create">Object creation instruction</a>
+    <li><a href="ObjectInst.html#access">Member variable access instructions</a>
+    <li><a href="ObjectInst.html#check">Object check instructions</a>
+    </ul>
+  <li><a href="ArrayInst.html">Array-related instructions</a>
+    <ul>
+    <li><a href="ArrayInst.html#create">Array creation instructions</a>
+    <li><a href="ArrayInst.html#access">Array element access instructions</a>
+    </ul>
+  <li><a href="MethodInst.html">Method-related instructions</a>
+    <ul>
+    <li><a href="MethodInst.html#invoke">Method invocation instructions</a>
+    <li><a href="MethodInst.html#return">Method return instructions</a>
+    </ul>
+  <li><a href="SyncInst.html">Synchronization-related instructions</a>
+  <li><a href="ExpInst.html">Exception-related instructions</a>
+  </ul>
+<li><a href="#Label">Label</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="Comment"><h2><hr>Comment</h2></a><dl><dd>
+
+<p><i>Format</i><dl><dd>
+<p><tt>; any text</tt>
+</dl>
+   
+<p><i>Description</i><dl><dd>
+<p>A Bass comment is written with a semicolon (;), and it lasts until the end of the line. 
+<p>A semicolon appeared within a quoted string is treated as an ordinary character.
+</dl>
+
+<p><i>Examples</i><dl><dd>
+<pre>
+; This is a comment
+.package java.lang    ; This is a package declaration
+.import java.io.*;    ; The last meaningful character of this line is "*"
+ldc "123;456"         ; load a String with 7 characters
+</pre>
+</dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="Label"><h2><hr>Label</h2></a><dl><dd>
+
+<p><i>Format</i><dl><dd>
+<p><i>label</i> <tt>:</tt>
+</dl>
+   
+<p><i>Description</i><dl><dd>
+<p>Bass labels are used to indicate Bass instructions.
+They are placed within methods.
+<p><i>label</i> should be a <a href="../../../../langspec/names.doc.html#31692">simple names</a>.
+Labels in the same method should be different.
+</dl>
+
+<p><i>Examples</i><dl><dd>
+<pre>
+    iload #1
+    ifle L1
+    ...
+    goto L2
+L1:
+    ...
+L2:
+    ...
+</pre>
+</dl>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

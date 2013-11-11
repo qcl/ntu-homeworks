@@ -1,0 +1,7 @@
+ LHS , RHS , FIRST , FOLLOW , PREDICT 
+" E "," E + T "," num ( "," (eof) ) + "," num ( "
+," T ",,," num ( "
+" T "," T * P "," num ( "," (eof) ) * + "," num ( "
+," P ",,," num ( "
+" P "," num "," num ( "," (eof) ) * + "," num "
+," ( E ) ",,," ( "

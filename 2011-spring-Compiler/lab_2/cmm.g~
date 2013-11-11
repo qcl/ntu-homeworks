@@ -1,0 +1,41 @@
+program		:	blockStmt
+			;
+blockStmt	:	"{"	varDecl	stmt	"}"
+			;
+varDecl		:	int	A	id	B	";"	C
+			|
+			;
+A			:	"["	num	"]"
+			|
+			;
+B			:	","	id	B
+			|
+			;
+C			:	varDecl
+			|
+			;
+var			:	id	D
+			;
+D			:	"["	arithExpr	"]"
+			|
+			;
+stmt		:	var	"="	arithExpr	";"
+			|	"if"	"("	logicExpr	")"	blockStmt	E
+			|	"while"	"("	logicExpr	")"	blockStmt
+			|	"break"	";"
+			|	"continue"	";"
+			|	"scan"	"("	var	F	")"	";"
+			|	"print"	"("	printableExpr	G	")"	";"
+			|	blockStmt
+			|
+			;
+E			:	"else"	blockStmt
+			|
+			;
+F			:	","	var
+			|
+			;
+G			:	","	printableExpr
+			|
+			;
+			

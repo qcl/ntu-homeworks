@@ -1,0 +1,115 @@
+{
+	int p, q, r;
+	int m, k, n;
+	int[10][10] A, B, C;
+	
+	scan(m, k, n);
+	
+	p = 0;
+	while (p < m) {
+		q = 0;
+		while (q < k) {
+			scan(A[p][q]);
+			q = q + 1;
+		}
+		p = p + 1;
+	}
+	
+	p = 0;
+	while (p < k) {
+		q = 0;
+		while (q < n) {
+			scan(B[p][q]);
+			q = q + 1;
+		}
+		p = p + 1;
+	}
+	
+	p = 0;
+	while (p < m) {
+		q = 0;
+		while (q < n) {
+			C[p][q] = 0;
+			r = 0;
+			while (r < k) {
+				C[p][q] = C[p][q] + A[p][r] * B[r][q];
+				r = r + 1;
+			}
+			q = q + 1;
+		}
+		p = p + 1;
+	}
+	
+	p = 0;
+	while (p < m) {
+		if (p == 0) {
+			print("A ");
+		} else {
+			print("  ");
+		}
+		q = 0;
+		while (q < k) {
+			if (A[p][q] < 10) {
+				print("  ");
+			} else {
+				if (A[p][q] < 100) {
+					print(" ");
+				}
+			}
+			print(" ", A[p][q]);
+			q = q + 1;
+		}
+		println("");
+		p = p + 1;
+	}
+	
+	println("*");
+	
+	p = 0;
+	while (p < k) {
+		if (p == 0) {
+			print("B ");
+		} else {
+			print("  ");
+		}
+		q = 0;
+		while (q < n) {
+			if (B[p][q] < 10) {
+				print("  ");
+			} else {
+				if (B[p][q] < 100) {
+					print(" ");
+				}
+			}
+			print(" ", B[p][q]);
+			q = q + 1;
+		}
+		println("");
+		p = p + 1;
+	}
+	
+	println("=");
+	
+	p = 0;
+	while (p < m) {
+		if (p == 0) {
+			print("C ");
+		} else {
+			print("  ");
+		}
+		q = 0;
+		while (q < n) {
+			if (C[p][q] < 10) {
+				print("  ");
+			} else {
+				if (C[p][q] < 100) {
+					print(" ");
+				}
+			}
+			print(" ", C[p][q]);
+			q = q + 1;
+		}
+		println("");
+		p = p + 1;
+	}
+}

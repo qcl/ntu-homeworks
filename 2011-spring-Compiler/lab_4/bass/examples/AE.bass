@@ -1,0 +1,14 @@
+.class AE
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method static void expr1(int, int)
+	ldc 2
+	iload #0
+	iadd
+	istore #2
+	return
+

@@ -1,0 +1,203 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Operational Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Operational Instructions</h1>
+
+<h3>Contents</h3>
+
+<ul>
+  <li><a href="#arith">Arithmetic instructions</a>
+  <li><a href="#logic">Bitwise logical instructions</a>
+  <li><a href="#shift">Shift instructions</a>
+  <li><a href="#cast">Primitive data casting instructions</a>
+  <li><a href="#iinc">Local variable increment instruction</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="arith"><h2><hr>Arithmetic Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>iadd <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iadd">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> add
+<tr ALIGN=CENTER><td ALIGN=LEFT>isub <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#isub">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> subtract
+<tr ALIGN=CENTER><td ALIGN=LEFT>imul <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#imul">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> multiply
+<tr ALIGN=CENTER><td ALIGN=LEFT>idiv <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#idiv">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> divide
+<tr ALIGN=CENTER><td ALIGN=LEFT>irem <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#irem">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> mod
+<tr ALIGN=CENTER><td ALIGN=LEFT>ineg <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ineg">vmspec</a></font></sup><td>&nbsp;<td>I<td>I<td ALIGN=LEFT><tt>int</tt> negate
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ladd <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ladd">vmspec</a></font></sup><td>&nbsp;<td>L L<td>L<td ALIGN=LEFT><tt>long</tt> add
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lsub <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lsub">vmspec</a></font></sup><td>&nbsp;<td>L L<td>L<td ALIGN=LEFT><tt>long</tt> subtract
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lmul <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lmul">vmspec</a></font></sup><td>&nbsp;<td>L L<td>L<td ALIGN=LEFT><tt>long</tt> multiply
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ldiv <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#ldiv">vmspec</a></font></sup><td>&nbsp;<td>L L<td>L<td ALIGN=LEFT><tt>long</tt> divide
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lrem <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lrem">vmspec</a></font></sup><td>&nbsp;<td>L L<td>L<td ALIGN=LEFT><tt>long</tt> mod
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lneg <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lneg">vmspec</a></font></sup><td>&nbsp;<td>L<td>L<td ALIGN=LEFT><tt>long</tt> negate
+<tr ALIGN=CENTER><td ALIGN=LEFT>fadd <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fadd">vmspec</a></font></sup><td>&nbsp;<td>F F<td>F<td ALIGN=LEFT><tt>float</tt> add
+<tr ALIGN=CENTER><td ALIGN=LEFT>fsub <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fsub">vmspec</a></font></sup><td>&nbsp;<td>F F<td>F<td ALIGN=LEFT><tt>float</tt> subtract
+<tr ALIGN=CENTER><td ALIGN=LEFT>fmul <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fmul">vmspec</a></font></sup><td>&nbsp;<td>F F<td>F<td ALIGN=LEFT><tt>float</tt> multiply
+<tr ALIGN=CENTER><td ALIGN=LEFT>fdiv <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fdiv">vmspec</a></font></sup><td>&nbsp;<td>F F<td>F<td ALIGN=LEFT><tt>float</tt> divide
+<tr ALIGN=CENTER><td ALIGN=LEFT>frem <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#frem">vmspec</a></font></sup><td>&nbsp;<td>F F<td>F<td ALIGN=LEFT><tt>float</tt> mod
+<tr ALIGN=CENTER><td ALIGN=LEFT>fneg <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fneg">vmspec</a></font></sup><td>&nbsp;<td>F<td>F<td ALIGN=LEFT><tt>float</tt> negate
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dadd <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dadd">vmspec</a></font></sup><td>&nbsp;<td>D D<td>D<td ALIGN=LEFT><tt>double</tt> add
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dsub <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dsub">vmspec</a></font></sup><td>&nbsp;<td>D D<td>D<td ALIGN=LEFT><tt>double</tt> subtract
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dmul <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dmul">vmspec</a></font></sup><td>&nbsp;<td>D D<td>D<td ALIGN=LEFT><tt>double</tt> multiply
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>ddiv <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#ddiv">vmspec</a></font></sup><td>&nbsp;<td>D D<td>D<td ALIGN=LEFT><tt>double</tt> divide
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>drem <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#drem">vmspec</a></font></sup><td>&nbsp;<td>D D<td>D<td ALIGN=LEFT><tt>double</tt> mod
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dneg <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dneg">vmspec</a></font></sup><td>&nbsp;<td>D<td>D<td ALIGN=LEFT><tt>double</tt> negate
+</table>
+
+<p><i>Examples</i><dl><dd><pre>
+ldc 2  ; stack -- 2
+ldc 3  ; stack -- 2, 3
+ineg   ; stack -- 2, -3
+iadd   ; stack -- -1
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="logic"><h2><hr>Bitwise Logical Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>iand <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iand">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> bitwise and
+<tr ALIGN=CENTER><td ALIGN=LEFT>ior <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ior">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> bitwise or
+<tr ALIGN=CENTER><td ALIGN=LEFT>ixor <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ixor">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> bitwise xor
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>land <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#land">vmspec</a></font></sup><td>&nbsp;<td>L L<td>L<td ALIGN=LEFT><tt>long</tt> bitwise and
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lor <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lor">vmspec</a></font></sup><td>&nbsp;<td>L L<td>L<td ALIGN=LEFT><tt>long</tt> bitwise or
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lxor <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lxor">vmspec</a></font></sup><td>&nbsp;<td>L L<td>L<td ALIGN=LEFT><tt>long</tt> bitwise xor
+</table>
+
+<p><i>Examples</i><dl><dd><pre>
+ldc 0x1234  ; stack -- 0x1234
+dup         ; stack -- 0x1234, 0x1234
+ldc 0xabcd  ; stack -- 0x1234, 0x1234, 0xabcd
+ior         ; stack -- 0x1234, 0xbbfd
+iand        ; stack -- 0x1234
+iconst_m1   ; stack -- 0x00001234, 0xffffffff
+ixor        ; stack -- 0xffffedcb (i.e., ~0x1234)
+</pre></dl>
+
+<p>Jvm doesn't support <tt>boolean</tt> type directly.
+Instead, you can use <tt>int</tt> type,
+using 1 to represent <tt>true</tt> and 0 to represent <tt>false</tt>.
+Please see <a href="../../../../vmspec/Overview.doc.html#22909">vmspec Sec. 3.3.4</a>.
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- a & b
+; both of a's type and b's type are boolean
+; assuming a and b are located at local variables #1 and #2
+    iload #1
+    iload #2
+    iand
+
+; instructions for -- a | b
+    iload #1
+    iload #2
+    ior
+
+; instructions for -- a ^ b
+    iload #1
+    iload #2
+    ixor
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="shift"><h2><hr>Shift Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>ishl <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ishl">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> shift left
+<tr ALIGN=CENTER><td ALIGN=LEFT>ishr <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#ishr">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> shift right
+<tr ALIGN=CENTER><td ALIGN=LEFT>iushr <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iushr">vmspec</a></font></sup><td>&nbsp;<td>I I<td>I<td ALIGN=LEFT><tt>int</tt> unsigned shift right
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lshl <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lshl">vmspec</a></font></sup><td>&nbsp;<td>L I<td>L<td ALIGN=LEFT><tt>long</tt> shift left
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lshr <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lshr">vmspec</a></font></sup><td>&nbsp;<td>L I<td>L<td ALIGN=LEFT><tt>long</tt> shift right
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lushr <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lushr">vmspec</a></font></sup><td>&nbsp;<td>L I<td>L<td ALIGN=LEFT><tt>long</tt> unsigned shift right
+</table>
+
+<p><i>Examples</i><dl><dd><pre>
+ldc -800L  ; stack -- -800L
+ldc 3      ; stack -- -800L, 3
+lshr       ; stack -- -100L
+ldc 2      ; stack -- -100L, 2
+lshl       ; stack -- -400L
+ldc 60     ; stack -- -400L (i.e., 0xfffffffffffffe70), 60
+lushr      ; stack -- 15L   (i.e., 0x000000000000000f)
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="cast"><h2><hr>Primitive Data Casting Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>i2b <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#i2b">vmspec</a></font></sup><td>&nbsp;<td>I<td>I<td ALIGN=LEFT><tt>int</tt> to <tt>byte</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>i2c <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#i2c">vmspec</a></font></sup><td>&nbsp;<td>I<td>I<td ALIGN=LEFT><tt>int</tt> to <tt>char</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>i2s <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#i2s">vmspec</a></font></sup><td>&nbsp;<td>I<td>I<td ALIGN=LEFT><tt>int</tt> to <tt>short</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>i2l <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#i2l">vmspec</a></font></sup><td>&nbsp;<td>I<td>L<td ALIGN=LEFT><tt>int</tt> to <tt>long</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>i2f <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#i2f">vmspec</a></font></sup><td>&nbsp;<td>I<td>F<td ALIGN=LEFT><tt>int</tt> to <tt>float</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>i2d <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#i2d">vmspec</a></font></sup><td>&nbsp;<td>I<td>D<td ALIGN=LEFT><tt>int</tt> to <tt>double</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>l2i <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#l2i">vmspec</a></font></sup><td>&nbsp;<td>L<td>I<td ALIGN=LEFT><tt>long</tt> to <tt>int</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>l2f <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#l2f">vmspec</a></font></sup><td>&nbsp;<td>L<td>F<td ALIGN=LEFT><tt>long</tt> to <tt>float</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>l2d <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#l2d">vmspec</a></font></sup><td>&nbsp;<td>L<td>D<td ALIGN=LEFT><tt>long</tt> to <tt>double</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>f2i <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#f2i">vmspec</a></font></sup><td>&nbsp;<td>F<td>I<td ALIGN=LEFT><tt>float</tt> to <tt>int</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>f2l <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#f2l">vmspec</a></font></sup><td>&nbsp;<td>F<td>L<td ALIGN=LEFT><tt>float</tt> to <tt>long</tt>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>f2d <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#f2d">vmspec</a></font></sup><td>&nbsp;<td>F<td>D<td ALIGN=LEFT><tt>float</tt> to <tt>double</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>d2i <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#d2i">vmspec</a></font></sup><td>&nbsp;<td>D<td>I<td ALIGN=LEFT><tt>double</tt> to <tt>int</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>d2l <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#d2l">vmspec</a></font></sup><td>&nbsp;<td>D<td>L<td ALIGN=LEFT><tt>double</tt> to <tt>long</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>d2f <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#d2f">vmspec</a></font></sup><td>&nbsp;<td>D<td>F<td ALIGN=LEFT><tt>double</tt> to <tt>float</tt>
+</table>
+
+<p><i>Examples</i><dl><dd><pre>
+ldc 1000F  ; stack -- 1000.0F (i.e., 0x447a0000)
+f2i        ; stack -- 1000    (i.e., 0x000003e8)
+i2b        ; stack -- -24     (i.e., 0xffffffe8)
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="iinc"><h2><hr>Local Variable Increment Instructions</h2><dl><dd>
+
+<p>JVM supports a short-cut instruction to add an amount to a local <tt>int</tt> variable.
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>iinc <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iinc">vmspec</a></font></sup><td>#<i>var1</i> by <i>inc1</i><td>-<td>-<td ALIGN=LEFT>increment local <tt>int</tt> variable by constant
+<tr ALIGN=CENTER><td ALIGN=LEFT>wide-iinc <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td>#<i>var2</i> by <i>inc2</i><td>-<td>-<td ALIGN=LEFT>increment local <tt>int</tt> variable by constant
+</table>
+
+<p>For iinc instruction, <i>var1</i> is an un-signed integer
+(range: 0~2<sup>8</sup>-1),
+and <i>inc1</i> is an integer literal
+(range: -2<sup>7</sup>~2<sup>7</sup>-1).
+For wide-iinc instruction, <i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1),
+and <i>inc2</i> is an integer literal
+(range: -2<sup>15</sup>~2<sup>15</sup>-1).
+"#" and "by" optional.
+White spaces between "#" and <i>var1</i> or <i>var2</i> are not permitted.
+
+</dl><!-- Sub-sub-Section .................................................. -->
+<h4> &nbsp; &nbsp; <font color="#FF0000">Generic version</font></h4><dl><dd>
+<p>For programmer's convenience, Bass supports the following generic instruction.
+Bass will automatically determine which one of iinc and wide-iinc instructions is the most suitable.
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>iinc<td>#<i>var2</i> by <i>inc2</i><td>-<td>-<td ALIGN=LEFT>increment local <tt>int</tt> variable by constant
+</table>
+
+<p><i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1),
+and <i>inc2</i> is an integer literal
+(range: -2<sup>15</sup>~2<sup>15</sup>-1).
+"#" and "by" are optional.
+White spaces between "#" and <i>var2</i> are not permitted.
+
+<p><i>Examples</i><dl><dd><pre>
+ldc 5
+istore #1
+iinc #1 by -3   ; now, local variable #1 is 2
+                ; this instruction is equivalent to:
+                ;      iload #1
+                ;      ldc -3
+                ;      iadd
+                ;      istore #1
+wide-iinc 1 +2  ; now, local variable #1 is 4
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

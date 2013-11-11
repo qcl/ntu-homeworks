@@ -1,0 +1,35 @@
+{
+	int i, j, product;
+	int breakFlag;
+	breakFlag = 0;
+	
+	i = 1;
+	while (i < 10) {
+		if (i == i / 2 * 2) {
+			i = i + 1;
+			continue;
+		}
+		j = 1;
+		while (j < 10) {
+			if (j == j / 2 * 2) {
+				j = j + 1;
+				continue;
+			}
+			product = i * j;
+			if (product >= 30) {
+				breakFlag = 1;
+				break;
+			}
+			print(" ", i, "*", j, "=", product);
+			if (product < 10) {
+				print(" ");
+			}
+			j = j + 1;
+		}
+		println("");
+		if (breakFlag == 1) {
+			break;
+		}
+		i = i + 1;
+	}
+}

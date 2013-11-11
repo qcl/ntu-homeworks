@@ -1,0 +1,5 @@
+inputs are: 10 10 11
+at least one of inputs is 10
+both of the first two are 10  OR  the last one is 10
+the first one is 10  OR  both of the last two are 10
+the first one is 10  AND  at least one of the last two is 10

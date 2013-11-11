@@ -1,0 +1,43 @@
+.class LocalVar
+
+.method void <init>()
+	aload #0
+	invokespecial void <init>() @ Object
+	return
+
+.method static void method1(int, int)
+	ldc 11
+	istore #0
+	ldc 22
+	istore #1
+	ldc 33
+	istore #2
+	ldc 44
+	istore #3
+	iload #0
+	istore #2
+	return
+
+.method void method2(int, int)
+	ldc 55
+	istore #1
+	ldc 66
+	istore #2
+	ldc 77
+	istore #3
+	ldc 88
+	istore #4
+	return
+
+.method static void method3(boolean)
+	iload #0
+	ifeq L11
+	ldc 777
+	istore #1
+	goto L15
+L11:
+	ldc 888
+	istore #1
+L15:
+	return
+

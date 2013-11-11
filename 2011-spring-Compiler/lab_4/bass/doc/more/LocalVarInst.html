@@ -1,0 +1,266 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Local Variable Access Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Local Variable Access Instructions</h1>
+
+<h3>Contents</h3>
+
+<ul>
+  <li><a href="#int">Local <tt>int</tt> variable access instructions</a>
+  <li><a href="#long">Local <tt>long</tt> variable access instructions</a>
+  <li><a href="#float">Local <tt>float</tt> variable access instructions</a>
+  <li><a href="#double">Local <tt>double</tt> variable access instructions</a>
+  <li><a href="#ref">Local reference variable access instructions</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="int">
+<h2><hr>Local <tt>int</tt> Variable Access Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>iload_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>load local <tt>int</tt> variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>iload_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>load local <tt>int</tt> variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>iload_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>load local <tt>int</tt> variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>iload_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>I<td ALIGN=LEFT>load local <tt>int</tt> variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>iload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#iload">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>-<td>I<td ALIGN=LEFT>load local <tt>int</tt> variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-iload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>-<td>I<td ALIGN=LEFT>load local <tt>int</tt> variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>istore_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#istore_n">vmspec</a></font></sup><td>&nbsp;<td>I<td>-<td ALIGN=LEFT>store local <tt>int</tt> variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>istore_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#istore_n">vmspec</a></font></sup><td>&nbsp;<td>I<td>-<td ALIGN=LEFT>store local <tt>int</tt> variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>istore_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#istore_n">vmspec</a></font></sup><td>&nbsp;<td>I<td>-<td ALIGN=LEFT>store local <tt>int</tt> variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>istore_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#istore_n">vmspec</a></font></sup><td>&nbsp;<td>I<td>-<td ALIGN=LEFT>store local <tt>int</tt> variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>istore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#istore">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>I<td>-<td ALIGN=LEFT>store local <tt>int</tt> variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-istore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>I<td>-<td ALIGN=LEFT>store local <tt>int</tt> variable #<i>var2</i>
+</table>
+
+<p><i>var1</i> is an un-signed integer
+(range: 0~2<sup>8</sup>-1),
+<i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var1</i> or <i>var2</i> are not permitted.
+
+</dl><!-- Sub-sub-Section .................................................. -->
+<h4> &nbsp; &nbsp; <font color="#FF0000">Generic version</font></h4><dl><dd>
+<p>For programmer's convenience, Bass supports the following generic instructions.
+Bass will automatically determine which instruction is the most suitable.
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>iload<td><tt>#</tt><i>var2</i><td>-<td>I<td ALIGN=LEFT>load local <tt>int</tt> variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>istore<td><tt>#</tt><i>var2</i><td>I<td>-<td ALIGN=LEFT>store local <tt>int</tt> variable #<i>var2</i>
+</table>
+
+<p><i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var2</i> are not permitted.
+
+<p><i>Examples</i><dl><dd><pre>
+iload_0         ; load local variable #0, treat it as an int
+iload #4        ; load local variable #4, treat it as an int
+wide-iload 256  ; load local variable #256, treat it as an int
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="long"><h2><hr>Local <tt>long</tt> Variable Access Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>lload_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>L<td ALIGN=LEFT>load local <tt>long</tt> variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>lload_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>L<td ALIGN=LEFT>load local <tt>long</tt> variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>lload_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>L<td ALIGN=LEFT>load local <tt>long</tt> variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>lload_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>L<td ALIGN=LEFT>load local <tt>long</tt> variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lload">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>-<td>L<td ALIGN=LEFT>load local <tt>long</tt> variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-lload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>-<td>L<td ALIGN=LEFT>load local <tt>long</tt> variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>lstore_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lstore_n">vmspec</a></font></sup><td>&nbsp;<td>L<td>-<td ALIGN=LEFT>store local <tt>long</tt> variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>lstore_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lstore_n">vmspec</a></font></sup><td>&nbsp;<td>L<td>-<td ALIGN=LEFT>store local <tt>long</tt> variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>lstore_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lstore_n">vmspec</a></font></sup><td>&nbsp;<td>L<td>-<td ALIGN=LEFT>store local <tt>long</tt> variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>lstore_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lstore_n">vmspec</a></font></sup><td>&nbsp;<td>L<td>-<td ALIGN=LEFT>store local <tt>long</tt> variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>lstore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc8.html#lstore">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>L<td>-<td ALIGN=LEFT>store local <tt>long</tt> variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-lstore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>L<td>-<td ALIGN=LEFT>store local <tt>long</tt> variable #<i>var2</i>
+</table>
+
+<p><i>var1</i> is an un-signed integer
+(range: 0~2<sup>8</sup>-1),
+<i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var1</i> or <i>var2</i> are not permitted.
+
+<P>A value of type <tt>long</tt> occupies two consecutive local variables, 
+see <a href="../../../../vmspec/Overview.doc.html#15722">vmspec Sec. 3.6.1</a>.
+
+</dl><!-- Sub-sub-Section .................................................. -->
+<h4> &nbsp; &nbsp; <font color="#FF0000">Generic version</font></h4><dl><dd>
+<p>For programmer's convenience, Bass supports the following generic instructions.
+Bass will automatically determine which instruction is the most suitable.
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>lload<td><tt>#</tt><i>var2</i><td>-<td>L<td ALIGN=LEFT>load local <tt>long</tt> variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>lstore<td><tt>#</tt><i>var2</i><td>L<td>-<td ALIGN=LEFT>store local <tt>long</tt> variable #<i>var2</i>
+</table>
+
+<p><i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var2</i> are not permitted.
+
+<p><i>Examples</i><dl><dd><pre>
+lload_0         ; load local variable #0 & #1,
+                ; treat them together as a long
+lload #4        ; load local variable #4 & #5,
+                ; treat them together as a long
+wide-lload 256  ; load local variable #256 & #257,
+                ; treat them together as a long
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="float"><h2><hr>Local <tt>float</tt> Variable Access Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>fload_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>F<td ALIGN=LEFT>load local <tt>float</tt> variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>fload_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>F<td ALIGN=LEFT>load local <tt>float</tt> variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>fload_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>F<td ALIGN=LEFT>load local <tt>float</tt> variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>fload_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>F<td ALIGN=LEFT>load local <tt>float</tt> variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>fload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fload">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>-<td>F<td ALIGN=LEFT>load local <tt>float</tt> variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-fload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>-<td>F<td ALIGN=LEFT>load local <tt>float</tt> variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>fstore_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fstore_n">vmspec</a></font></sup><td>&nbsp;<td>F<td>-<td ALIGN=LEFT>store local <tt>float</tt> variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>fstore_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fstore_n">vmspec</a></font></sup><td>&nbsp;<td>F<td>-<td ALIGN=LEFT>store local <tt>float</tt> variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>fstore_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fstore_n">vmspec</a></font></sup><td>&nbsp;<td>F<td>-<td ALIGN=LEFT>store local <tt>float</tt> variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>fstore_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fstore_n">vmspec</a></font></sup><td>&nbsp;<td>F<td>-<td ALIGN=LEFT>store local <tt>float</tt> variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>fstore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc4.html#fstore">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>F<td>-<td ALIGN=LEFT>store local <tt>float</tt> variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-fstore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>F<td>-<td ALIGN=LEFT>store local <tt>float</tt> variable #<i>var2</i>
+</table>
+
+<p><i>var1</i> is an un-signed integer
+(range: 0~2<sup>8</sup>-1),
+<i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var1</i> or <i>var2</i> are not permitted.
+
+</dl><!-- Sub-sub-Section .................................................. -->
+<h4> &nbsp; &nbsp; <font color="#FF0000">Generic version</font></h4><dl><dd>
+<p>For programmer's convenience, Bass supports the following generic instructions.
+Bass will automatically determine which instruction is the most suitable.
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>fload<td><tt>#</tt><i>var2</i><td>-<td>F<td ALIGN=LEFT>load local <tt>float</tt> variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>fstore<td><tt>#</tt><i>var2</i><td>F<td>-<td ALIGN=LEFT>store local <tt>float</tt> variable #<i>var2</i>
+</table>
+
+<p><i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var2</i> are not permitted.
+
+<p><i>Examples</i><dl><dd><pre>
+fload_0         ; load local variable #0, treat it as a float
+fload #4        ; load local variable #4, treat it as a float
+wide-fload 256  ; load local variable #256, treat it as a float
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="double"><h2><hr>Local <tt>double</tt> Variable Access Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>dload_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>D<td ALIGN=LEFT>load local <tt>double</tt> variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>dload_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>D<td ALIGN=LEFT>load local <tt>double</tt> variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>dload_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>D<td ALIGN=LEFT>load local <tt>double</tt> variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>dload_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>D<td ALIGN=LEFT>load local <tt>double</tt> variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dload">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>-<td>D<td ALIGN=LEFT>load local <tt>double</tt> variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-dload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>-<td>D<td ALIGN=LEFT>load local <tt>double</tt> variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>dstore_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dstore_n">vmspec</a></font></sup><td>&nbsp;<td>D<td>-<td ALIGN=LEFT>store local <tt>double</tt> variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>dstore_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dstore_n">vmspec</a></font></sup><td>&nbsp;<td>D<td>-<td ALIGN=LEFT>store local <tt>double</tt> variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>dstore_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dstore_n">vmspec</a></font></sup><td>&nbsp;<td>D<td>-<td ALIGN=LEFT>store local <tt>double</tt> variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>dstore_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dstore_n">vmspec</a></font></sup><td>&nbsp;<td>D<td>-<td ALIGN=LEFT>store local <tt>double</tt> variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>dstore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc3.html#dstore">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>D<td>-<td ALIGN=LEFT>store local <tt>double</tt> variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-dstore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>D<td>-<td ALIGN=LEFT>store local <tt>double</tt> variable #<i>var2</i>
+</table>
+
+<p><i>var1</i> is an un-signed integer
+(range: 0~2<sup>8</sup>-1),
+<i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var1</i> or <i>var2</i> are not permitted.
+
+<P>A value of type <tt>double</tt> occupies two consecutive local variables, 
+see <a href="../../../../vmspec/Overview.doc.html#15722">vmspec Sec. 3.6.1</a>.
+
+</dl><!-- Sub-sub-Section .................................................. -->
+<h4> &nbsp; &nbsp; <font color="#FF0000">Generic version</font></h4><dl><dd>
+<p>For programmer's convenience, Bass supports the following generic instructions.
+Bass will automatically determine which instruction is the most suitable.
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>dload<td><tt>#</tt><i>var2</i><td>-<td>D<td ALIGN=LEFT>load local <tt>double</tt> variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>dstore<td><tt>#</tt><i>var2</i><td>D<td>-<td ALIGN=LEFT>store local <tt>double</tt> variable #<i>var2</i>
+</table>
+
+<p><i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var2</i> are not permitted.
+
+<p><i>Examples</i><dl><dd><pre>
+dload_0         ; load local variable #0 & #1,
+                ; treat them together as a double
+dload #4        ; load local variable #4 & #5,
+                ; treat them together as a double
+wide-dload 256  ; load local variable #256 & #257,
+                 ; treat them together as a double
+</pre></dl>
+
+</dl><!-- Sub-Section ...................................................... -->
+<a name="ref">
+<h2><hr>Local Reference Variable Access Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>aload_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#aload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>R<td ALIGN=LEFT>load local reference variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>aload_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#aload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>R<td ALIGN=LEFT>load local reference variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>aload_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#aload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>R<td ALIGN=LEFT>load local reference variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>aload_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#aload_n">vmspec</a></font></sup><td>&nbsp;<td>-<td>R<td ALIGN=LEFT>load local reference variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>aload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#aload">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>-<td>R<td ALIGN=LEFT>load local reference variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-aload <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>-<td>R<td ALIGN=LEFT>load local reference variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>astore_0 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#astore_n">vmspec</a></font></sup><td>&nbsp;<td>R<td>-<td ALIGN=LEFT>store local reference variable #0
+<tr ALIGN=CENTER><td ALIGN=LEFT>astore_1 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#astore_n">vmspec</a></font></sup><td>&nbsp;<td>R<td>-<td ALIGN=LEFT>store local reference variable #1
+<tr ALIGN=CENTER><td ALIGN=LEFT>astore_2 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#astore_n">vmspec</a></font></sup><td>&nbsp;<td>R<td>-<td ALIGN=LEFT>store local reference variable #2
+<tr ALIGN=CENTER><td ALIGN=LEFT>astore_3 <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#astore_n">vmspec</a></font></sup><td>&nbsp;<td>R<td>-<td ALIGN=LEFT>store local reference variable #3
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>astore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc.html#astore">vmspec</a></font></sup><td><tt>#</tt><i>var1</i><td>R<td>-<td ALIGN=LEFT>store local reference variable #<i>var1</i>
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>wide-astore <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc15.html#wide">vmspec</a></font></sup><td><tt>#</tt><i>var2</i><td>R<td>-<td ALIGN=LEFT>store local reference variable #<i>var2</i>
+</table>
+
+<p><i>var1</i> is an un-signed integer
+(range: 0~2<sup>8</sup>-1),
+<i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var1</i> or <i>var2</i> are not permitted.
+
+</dl><!-- Section .......................................................... -->
+<h4> &nbsp; &nbsp; <font color="#FF0000">Generic version</font></h4><dl><dd>
+<p>For programmer's convenience, Bass supports the following generic instructions.
+Bass will automatically determine which instruction is the most suitable.
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>aload<td><tt>#</tt><i>var2</i><td>-<td>R<td ALIGN=LEFT>load local reference variable #<i>var2</i>
+<tr ALIGN=CENTER><td ALIGN=LEFT>astore<td><tt>#</tt><i>var2</i><td>R<td>-<td ALIGN=LEFT>store local reference variable #<i>var2</i>
+</table>
+
+<p><i>var2</i> is an un-signed integer
+(range: 0~2<sup>16</sup>-1).
+"#" is optional.
+White spaces between "#" and <i>var2</i> are not permitted.
+
+<p><i>Examples</i><dl><dd><pre>
+aload_0         ; load local variable #0, treat it as a reference
+aload #4        ; load local variable #4, treat it as a reference
+wide-aload 256  ; load local variable #256, treat it as a reference
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

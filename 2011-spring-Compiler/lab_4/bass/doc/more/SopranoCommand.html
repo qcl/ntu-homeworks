@@ -1,0 +1,95 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Soprano Command</title>
+</head>
+<body background="../../../images/441blue.jpg" nosave>
+
+<h1>SOPRANO -- bytecode disassembler</h1>
+<p>Soprano is a disassembler to translate Java bytecode (<tt>.class</tt> file)
+to the corresponding <a href="BassLang.html">bass program</a> (<tt>.bass</tt> file).
+The name of the assembler is <b>bass</b>,
+so the name of the disassembler, of course, is <b>soprano</b>.
+
+<h3>Contents</h3>
+
+<ul>
+<li><a href="#Synopsis">Synopsis</a>
+<li><a href="#Options">Options</a>
+<li><a href="#Examples">Examples</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="Synopsis"><h2><hr>Synopsis</h2></a><dl><dd>
+
+<tt><b>soprano</b> [ options ] classFiles</tt>
+<p>Arguments may be in any order.
+<p>
+<dl><dd>
+  <dl>
+     <dt><tt>options</tt>
+         <dd>Command-line options.
+     <p>
+     <dt><tt>classFiles</tt>
+         <dd>One or more class files to be disassembled. 
+  </dl>
+</dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="Options"><h2><hr>Options</h2></a><dl><dd>
+
+<dl>
+    <dt><b>-d</b> <i>directory</i>
+        <dd>Set the destination directory for bass files.
+        The value <i>directory</i> can be absolute or relative 
+        to the current working directory. 
+        If <b>-d</b> is not specified, the destination directory is 
+        the current working directory.
+    <p>
+    <dt><b>-b</b>
+        <dd>Produce output beiefly.
+        For example, the <tt>.extends</tt> directive will be omitted
+        for a class whose super class is <tt>java.lang.Object</tt>.
+        By default, the output is produced in brief.
+    <p>
+    <dt><b>-b:none</b>
+        <dd>Produce output detailedly.
+    <p>
+    <dt><b>-g</b>
+        <dd>Translate instructions into generic forms.
+        For example, instruction "<tt>03</tt>" will be translated into <b>ldc 0</b>.
+        By default, the generated instructions are generic.
+    <p>
+    <dt><b>-g:none</b>
+        <dd>Don't translate instructions into generic forms.
+        For example, instruction "<tt>03</tt>" will be translated into <b>iconst_0</b>.
+    <p>
+    <dt><b>-i:package</b>
+	<dd>Generate <tt>.import</tt> directives.
+	The imported entities are packages.
+	In this case, <a href="../../../../langspec/names.doc.html#21810">simple names</a> 
+	are sufficient to repesent classes.
+	This is the default setting for <b>-i</b>.
+    <p>
+    <dt><b>-i:class</b>
+	<dd>Generate <tt>.import</tt> directives.
+	The imported entities are classes.
+	In this case, <a href="../../../../langspec/names.doc.html#21810">simple names</a> 
+	are sufficient to repesent classes.
+    <p>
+    <dt><b>-i:none</b>
+    	<dd>Don't generate <tt>.import</tt> directives.
+    	In this case, classes will be represented by 
+    	<a href="../../../../langspec/names.doc.html#21811">fully qualified names</a>.
+
+</dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="Examples"><hr><h2>Examples</h2></a><dl><dd>
+
+<p><tt>soprano String.class reflect\Field.class</tt>
+<p><tt>soprano -d myjavac\classes -b:none -g:none -i:none *.class</tt>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

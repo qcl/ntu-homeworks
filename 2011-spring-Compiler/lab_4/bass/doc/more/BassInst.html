@@ -1,0 +1,88 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Instructions</h1>
+
+<p>Bass instructions are placed between the .method and .endmethod directives.
+<p>We group Bass instructions into the following categories:
+
+<h3>Contents</h3>
+
+<ul>
+<li><a href="#nop">No-operation instruction</a>
+<li><a href="ConstInst.html">Constant push instructions</a>
+  <ul>
+  <li><a href="ConstInst.html#int"><tt>int</tt> constant push instructions</a>
+  <li><a href="ConstInst.html#long"><tt>long</tt> constant push instructions</a>
+  <li><a href="ConstInst.html#float"><tt>float</tt> constant push instructions</a>
+  <li><a href="ConstInst.html#double"><tt>double</tt> constant push instructions</a>
+  <li><a href="ConstInst.html#ref">Reference constant push instructions</a>
+  <li><a href="ConstInst.html#generic">Generic version</a>
+  </ul>
+<li><a href="StackInst.html">Stack manipulation instructions</a>
+<li><a href="LocalVarInst.html">Local variable access instructions</a>
+  <ul>
+  <li><a href="LocalVarInst.html#int">Local <tt>int</tt> variable access instructions</a>
+  <li><a href="LocalVarInst.html#long">Local <tt>long</tt> variable access instructions</a>
+  <li><a href="LocalVarInst.html#float">Local <tt>float</tt> variable access instructions</a>
+  <li><a href="LocalVarInst.html#double">Local <tt>double</tt> variable access instructions</a>
+  <li><a href="LocalVarInst.html#ref">Local reference variable access instructions</a>
+  </ul>
+<li><a href="OpInst.html">Operational instructions</a>
+  <ul>
+  <li><a href="OpInst.html#arith">Arithmetic instructions</a>
+  <li><a href="OpInst.html#logic">Bitwise logical instructions</a>
+  <li><a href="OpInst.html#shift">Shift instructions</a>
+  <li><a href="OpInst.html#cast">Primitive data casting instructions</a>
+  <li><a href="OpInst.html#iinc">Local variable increment instruction</a>
+  </ul>
+<li><a href="ControlInst.html">Control flow instructions</a>
+  <ul>
+  <li><a href="ControlInst.html#goto">Unconditional branch instructions</a>
+  <li><a href="ControlInst.html#if">Conditional branch instructions</a>
+  <li><a href="ControlInst.html#cmp">Compare instructions</a>
+  <li><a href="ControlInst.html#switch">Switch instructions</a>
+  <li><a href="ControlInst.html#jsr">Subroutine instructions</a>
+  </ul>
+<li><a href="ObjectInst.html">Object-related instructions</a>
+  <ul>
+  <li><a href="ObjectInst.html#create">Object creation instruction</a>
+  <li><a href="ObjectInst.html#access">Member variable access instructions</a>
+  <li><a href="ObjectInst.html#check">Object check instructions</a>
+  </ul>
+<li><a href="ArrayInst.html">Array-related instructions</a>
+  <ul>
+  <li><a href="ArrayInst.html#create">Array creation instructions</a>
+  <li><a href="ArrayInst.html#access">Array element access instructions</a>
+  </ul>
+<li><a href="MethodInst.html">Method-related instructions</a>
+  <ul>
+  <li><a href="MethodInst.html#invoke">Method invocation instructions</a>
+  <li><a href="MethodInst.html#return">Method return instructions</a>
+  </ul>
+<li><a href="SyncInst.html">Synchronization-related instructions</a>
+<li><a href="ExpInst.html">Exception-related instructions</a>
+</ul>
+
+<!-- Sub-Section ...................................................... -->
+<a name="nop">
+<h2><hr>No-Operation Instruction</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>nop <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc10.html#nop">vmspec</a></font></sup><td>&nbsp;<td>-<td>-<td ALIGN=LEFT>nop
+</table>
+
+<p>It requires no arguments.
+A no-arg instruction is written with just the mnemonic.
+
+<p><i>Examples</i><dl><dd><pre>
+nop
+</pre></dl>
+
+</dl>
+</body>
+</html>

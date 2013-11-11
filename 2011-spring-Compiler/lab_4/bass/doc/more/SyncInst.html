@@ -1,0 +1,51 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Synchronization-Related Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Synchronization-Related Instructions</h1><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>monitorenter <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc9.html#monitorenter">vmspec</a></font></sup><td>&nbsp;<td>R<td>-<td ALIGN=LEFT>enter monitor for object
+<tr ALIGN=CENTER><td ALIGN=LEFT>monitorexit <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc9.html#monitorexit">vmspec</a></font></sup><td>&nbsp;<td>R<td>-<td ALIGN=LEFT>exit monitor for object
+</table>
+
+<p><i>Examples</i><dl><dd><pre>
+; a synchronized instance method
+.method synchronized void m0()
+    ...
+    return
+
+; another implementation of m0()
+.method void m1()
+    aload #0      ; get "this"
+    monitorenter  ; enter monitor of this object
+    ...
+    aload #0      ; get "this"
+    monitorexit   ; exit monitor of this object
+    return
+
+; a synchronized static method
+.method synchronized static void n0()
+    ...
+    return
+
+; another implementation of n0()
+.method static void n1()
+    aload #0      ; get "this"
+    invokevirtual Class getClass() @ Object  
+                  ; get Class of this object
+    dup
+    astore #1
+    monitorenter  ; enter monitor of this Class
+    ...
+    aload #1      ; get Class of this object
+    monitorexit   ; exit monitor of this Class
+    return
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>

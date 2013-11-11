@@ -1,0 +1,127 @@
+<html>
+<head>
+   <meta name="Author" content="Chuen-Liang Chen">
+   <title>Object-Related Instructions</title>
+</head>
+<body background="../../../images/441yellow.jpg" nosave>
+
+<h1>Object-Related Instructions</h1>
+
+<h3>Contents</h3>
+
+<ul>
+  <li><a href="#create">Object creation instruction</a>
+  <li><a href="#access">Member variable access instructions</a>
+  <li><a href="#check">Object check instructions</a>
+</ul>
+
+<!-- Section ............................................................... -->
+<a name="create"><h2><hr>Object Creation Instruction</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>new <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc10.html#new">vmspec</a></font></sup><td><i>class</i><td>-<td>R<td ALIGN=LEFT>create new class object
+</table>
+
+<p><i>class</i> is the class name of the created object.
+It can be a <a href="../../../../langspec/names.doc.html#21810">simple type name</a>
+or a <a href="../../../../langspec/names.doc.html#21811">qualified type name</a>.
+If it is a simple name, Bass can automatically determine its qualified name
+according to <a href="BassDir.html#import"><tt>.import</tt></a> directives.
+If it is a qualified name, white space is not permitted between identifiers and periods.
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- new String()
+    new java.lang.String  ; stack -- ... R (to a String object)
+    dup                   ; stack -- ... R R
+    invokespecial void &lt;init>() @ String
+                          ; stack -- ... R
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="access"><h2><hr>Member Variable Access Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>getstatic <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc5.html#getstatic">vmspec</a></font></sup><td><i>type name</i> <tt>@</tt> <i>class</i><td>-<td>X<td ALIGN=LEFT>load static variable
+<tr ALIGN=CENTER><td ALIGN=LEFT>putstatic <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc11.html#putstatic">vmspec</a></font></sup><td><i>type name</i> <tt>@</tt> <i>class</i><td>X<td>-<td ALIGN=LEFT>store static variable
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>getfield <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc5.html#getfield">vmspec</a></font></sup><td><i>type name</i> <tt>@</tt> <i>class</i><td>R<td>X<td ALIGN=LEFT>load instance variable
+<tr ALIGN=CENTER BGCOLOR="#FFFF99"><td ALIGN=LEFT>putfield <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc11.html#putfield">vmspec</a></font></sup><td><i>type name</i> <tt>@</tt> <i>class</i><td>R X<td>-<td ALIGN=LEFT>store instance variable
+</table>
+
+<p><i>class</i> is the declared class (interface) name of the accessed field.
+It can be a <a href="../../../../langspec/names.doc.html#21810">simple type name</a>
+or a <a href="../../../../langspec/names.doc.html#21811">qualified type name</a>.
+If it is a simple name, Bass can automatically determine its qualified name
+according to <a href="BassDir.html#import"><tt>.import</tt></a> directives.
+If it is a qualified name, white space is not permitted between identifiers and periods.
+If the accessed field is declared in the current class, 
+"<tt>@</tt> <i>class</i>" is optional.
+
+<i>name</i> is the name of the accessed field.
+It is a <a href="../../../../langspec/lexical.doc.html#40625">simple identifier</a>.
+
+<i>type</i> is the type of the accessed field.
+It is a Java <a href="../../../../langspec/typesValues.doc.html#48440">type</a>.
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- this.t = StreamTokenizer.TT_WORD;
+; t is an int type instance variable of objects of current class
+    aload #0        ; stack -- ... R (this)
+    getstatic int TT_WORD @ StreamTokenizer
+                    ; stack -- ... R I
+    putfield int t  ; stack -- ...
+                    ; "@ <i>class</i>" is omissible
+
+; instructions for -- MyClass.s = st.sval;
+; s is a String type static variable of class MyClass
+; sval is a String type instance variable of StreamTokenizer object
+; st's type is StreamTokenizer
+; assuming st is located at local variables #1
+    aload #1        ; stack -- ... R (to a StreamTokenizer object)
+    getfield String sval @ java.io.StreamTokenizer
+                    ; stack -- ... R (to a String object)
+    putstatic String s @ MyClass
+                    ; stack -- ...
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+<a name="check"><h2><hr>Object Check Instructions</h2><dl><dd>
+
+<p><table BORDER><tr ALIGN=CENTER BGCOLOR="#66FFFF"><td>mnemonic<td>arguments<td>pop<td>push<td>description
+<tr ALIGN=CENTER><td ALIGN=LEFT>instanceof <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc6.html#instanceof">vmspec</a></font></sup><td><i>rType</i><td>R<td>I<td ALIGN=LEFT>check whether object is of given type<br>if test fails, return <tt>false</tt>; otherwise, return <tt>true</tt>
+<tr ALIGN=CENTER><td ALIGN=LEFT>checkcast <sup><font size=-2><a href="../../../../vmspec/Instructions2.doc2.html#checkcast">vmspec</a></font></sup><td><i>rType</i><td>R<td>R<td ALIGN=LEFT>check whether object is of given type<br>if test fails, throw <tt>ClassCastException</tt>
+</table>
+
+<p><i>rType</i> is a <a href="../../../../langspec/typesValues.doc.html#9317">reference type</a>.
+It can be a <a href="../../../../langspec/names.doc.html#21810">simple type name</a>
+or a <a href="../../../../langspec/names.doc.html#21811">qualified type name</a>.
+If it is a simple name, Bass can automatically determine its qualified name
+according to <a href="BassDir.html#import"><tt>.import</tt></a> directives.
+If it is a qualified name, white space is not permitted between identifiers and periods.
+
+<p><i>Examples</i><dl><dd><pre>
+; instructions for -- if (o instanceof String) { xxx }
+; assuming o's type is Object, and located at local variable 1
+    aload #1           ; stack -- ... R (to an Object object)
+    instanceof String  ; stack -- ... I
+    ifeq L1            ; stack -- ...
+    xxx
+L1:
+    ...
+
+; instructions for -- s = (String)o;
+; assuming s's type is String, and located at local variable 2
+; assuming o is pointed to a String object, currently
+    aload #1           ; stack -- ... R (to an Object object)
+    checkcast String   ; stack -- ... R (the same object)
+    astore #2          ; stack -- ...
+
+; instructions for -- s = (String)o;
+; assuming o is not pointed to a String object, currently
+    aload #1           ; stack -- ... R (to an Object object)
+    checkcast String   ; stack -- ... R (to a ClassCastException object)
+    astore #2          ; abort
+</pre></dl>
+
+</dl><!-- Section .......................................................... -->
+</body>
+</html>
