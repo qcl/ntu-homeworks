@@ -17,7 +17,7 @@ qcl 將會陸續整理過去的作業彙整至此。
 
 #2012 Fall (101-1)
 
-* Complexity 康普雷射體 *準備中*
+* **Complexity 康普雷射體**
 * Multimedia Analysis and Indexing 多媒體資訊分析與檢索 *準備中*
 * Natural Language Processing 自然語言處理 *準備中*
 * I-ching 《易經》 *準備中*

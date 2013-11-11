@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+%Gummi|061|=)
+\title{\textbf{Theory of Computation}}
+\author{Homework 1\\
+					\\
+		Qing-Cheng Li\\
+		R01922024}
+\date{\today}
+\begin{document}
+
+\maketitle
+\setcounter{section}{1}
+\section{Problem 2}
+Suppose $S$ = \{$S_1, S_2, ..., S_n$\}, we can use 0 and 1 to represent $S_n$, let $S_n = s_{n1}s_{n2}...s_{nm}$ where $s_{n1}, s_{n2}, ..., s_{nm}$ is 0 or 1. And let length of string ``$s_{n1}s_{n2}...s_{nm}$" = $L_n$, the longest length = $L_{max}$, $\Sigma = \{\triangleright,\sqcup,0,1\}$, $K = \{s,q_1,q_2,...,q_{L_{max}}\}$, then we can build a Turing Machine $M$:\\
+
+\begin{tabular}{ll||l}
+	$p \in K$, & $\sigma \in \Sigma$ & $\delta(p,\sigma)$\\
+	\hline
+	s & $\sqcup$ & $(``no",\sqcup,-)$\\
+	s & $\triangleright$ & $(s,\triangleright,\rightarrow)$\\
+	s & 0& If there is $s_{k1}=0$, k from 1 to n, $(q_1,0,\rightarrow)$ \\
+	  &  & else $(``no",0,-)$\\
+	s & 1& If there is $s_{k1}=1$, k from 1 to n, $(q_1,1,\rightarrow)$ \\
+	  &  & else $(``no",1,-)$\\
+	\hline
+	$q_1$ & $\sqcup$ & If there is $L_k$ = 1, k from 1 to n, $(``yes",\sqcup,-)$\\
+	&& else$(``no",\sqcup,-)$\\
+	$q_1$ & 0& If there is $s_{k2}=0$, k from 1 to n, $(q_2,0,\rightarrow)$\\
+	&&else $(``no",0,-)$\\
+	$q_1$ & 1& If there is $s_{k2}=1$, k from 1 to n, $(q_2,1,\rightarrow)$\\
+	&&else $(``no",1,-)$\\
+	\hline 
+	... \\
+	\hline
+	$q_{L_{max}}$ & $\sqcup$ & $(``yes",\sqcup,-)$\\
+	$q_{L_{max}}$ & 0& $(``no",0,-)$\\
+	$q_{L_{max}}$ & 1& $(``no",1,-)$\\
+	\hline\\
+\end{tabular}
+\\We can find that for every natural number $S_n$ in $S$, $M(S_n) = ``yes"$, and natural numbers that are not in $S$ will reuslt in $``no"$. So $S$ is recursive.
+
+
+\end{document}

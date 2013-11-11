@@ -1,0 +1,20 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{CJK}
+\title{\textbf{Theory of Computation}}
+\author{Homework 4\\
+					\\
+		Qing-Cheng Li\\
+		R01922024}
+\date{\today}
+\usepackage{graphicx}
+\begin{document}
+\maketitle
+\section{Problem 1}
+If there is a reduction from language $L$ to another language $L' \in BPP$ runs in polynomial time. It clearly that $L \in BPP$ because it is decided by the following precise machine $N$: Run reduction function on input $x$, then run the machine $N'$ which decides $L'$ on the transformed input. $N$ decides $L$ and fullfills the accepting condiction required for $BPP$, so $L \in BPP$. Thus $BPP$ is closed under reductions.
+
+\section{Problem 2}
+Let $M_1$ decides $L_1$, $M_2$ decides $L_2$,$L_1,L_2 \in RP$, we can build a machine $M_{\cap}$ to decide a input $x$ belongs to a intersection language, for input $x$, we first simulate $M_1(x)$, if $M_1$ rejects, $M_{\cap}$ rejects $x$, else simulate $M_2(x)$, if $M_2(x)$ rejects, $M_{\cap}$ rejects, otherwise accepts input. $M_{\cap}$ accepts input $x \in L_1 \cap L_2$ with probability $\geq \frac{1}{2}\times\frac{1}{2}=\frac{1}{4}$, rejects $x \not \in L_1 \cap L_2$ with probability 1. Running $M_{\cap}(x)$ 3 times, the accepting probability is $1 - (1-\frac{1}{4})^3 = \frac{37}{64} \geq \frac{1}{2}$, so $L_1 \cap L_2 \in RP$. So, $RP$ is closed under intersection.
+
+
+\end{document}
