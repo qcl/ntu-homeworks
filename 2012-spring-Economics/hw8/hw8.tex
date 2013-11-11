@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{MinionPro}
+\usepackage{CJK}
+%\usepackage[scaled=0.85]{beramono}  %%% scaled=0.775
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,booktabs,tabularx,psfrag}
+\usepackage{xcolor}
+\usepackage[a4paper]{geometry}
+\usepackage{url}
+
+\usepackage{pstool}
+
+\usepackage{graphicx}
+\begin{document}
+\begin{CJK}{UTF8}{cwmb}
+\renewcommand{\figurename}{圖}
+
+\voffset=-1cm
+\textwidth=5.6in
+\textheight=9.2in
+
+\newenvironment{num}
+ {\leftmargini=6mm\leftmarginii=8mm
+  \begin{enumerate}\itemsep=-2pt}
+ {\end{enumerate}}
+
+\newenvironment{sol}
+ {\begin{quote}\mbox{}\llap{\color{blue}{解答:}\rule{10mm}{0pt}}\hspace*{-4pt}}{\end{quote}}
+
+
+\thispagestyle{empty}
+\fontsize{12}{20pt}\selectfont
+\begin{center}
+{\large\CJKfamily{cwyb}{經濟學原理下, 習題8}}\\[3mm]
+劉彥佑 (R99628130)\\
+李卿澄 (B97501046)\\
+黃博億 (B99101014)\\
+王祉婷 (B00704056)
+\end{center}
+
+\begin{num}
+\item 
+	\begin{num}
+		\item 重貼現率上升，代表銀行向央行借錢的利率上升，會降低銀行借錢的意願，理論準備貨幣會相對減少，但一般銀行不會向央行借錢，所以不會直接影響到準備貨幣。
+		\item 若重貼現率上升導致準備貨幣相對減少，則M2貨幣供給也會相對下降。
+		\item 央行出售定期存單，猶如央行把市場上的現金收回，將使準備貨幣減少、市場資金減少。市場資金減少會使利率上升。
+	\end{num}
+\item 重貼現率調升，會使貨幣供給相對減少，而長期來看，貨幣供給量決定了物價的水準，因此調升重貼現率將有助於抑制物價上漲。
+\item 
+	\begin{num}
+		\item 課本214頁中提到，臺灣在1980-2005年間的平物價膨脹率是3.07\%，而由圖來看，物價膨脹率與貨幣供給成長率幾乎完全正相關，因此臺灣的貨幣供給成長率較接近A國。
+		\item 由貨幣供需均衡條件$\pi=\frac{\Delta M^s}{M^s}-\frac{\Delta m}{m}$，可以推得$\frac{\Delta m}{m}=\frac{\Delta M^s}{M}-\pi$。
+		\item $m=aY$，由a為常數可知$\frac{\Delta Y}{Y} = \frac{\Delta m}{m} = 4\%$，且$\pi = 2\%$，貨幣供給成長率$\frac{\Delta M^s}{M^s} = \pi + \frac{\Delta m}{m} = 2\% + 4\% = 6\%$。
+	\end{num}
+\end{num}
+\end{CJK}
+\end{document}

@@ -1,0 +1,62 @@
+\documentclass[12pt]{article}
+\usepackage{MinionPro}
+\usepackage{CJK}
+%\usepackage[scaled=0.85]{beramono}  %%% scaled=0.775
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,booktabs,tabularx,psfrag}
+\usepackage{xcolor}
+\usepackage[a4paper]{geometry}
+\usepackage{url}
+
+\usepackage{pstool}
+
+\usepackage{graphicx}
+\begin{document}
+\begin{CJK}{UTF8}{cwmb}
+\renewcommand{\figurename}{圖}
+
+\voffset=-1cm
+\textwidth=5.6in
+\textheight=9.2in
+
+\newenvironment{num}
+ {\leftmargini=6mm\leftmarginii=8mm
+  \begin{enumerate}\itemsep=-2pt}
+ {\end{enumerate}}
+
+\newenvironment{sol}
+ {\begin{quote}\mbox{}\llap{\color{blue}{解答:}\rule{10mm}{0pt}}\hspace*{-4pt}}{\end{quote}}
+
+
+\thispagestyle{empty}
+\fontsize{12}{20pt}\selectfont
+\begin{center}
+{\large\CJKfamily{cwyb}{經濟學原理下, 習題3}}\\[3mm]
+劉彥佑 (R99628130)\\
+李卿澄 (B97501046)\\
+黃博億 (B99101014)\\
+王祉婷 (B00704056)
+\end{center}
+
+\begin{num}
+\item $10,000(1+R)^5 = 10,000(1+0.04)^5 \cong 12,167$元。
+\item $\frac{4,000,000}{(1+R)^3} = \frac{4,000,000}{(1+0.05)^3} \cong 3,455,350$元。
+\item 
+	\begin{num}
+		\item 名目儲蓄為$(b_1+m_1)-(b_0+m_0) = (50+2)-(60+1) = -9$ 萬元。
+		\item 實質儲蓄為$\frac{b_1+m_1}{p_1} - \frac{b_0+m_0}{p_0}$, 設$p_0$為1萬元，則可以推得實質儲蓄為$\frac{b_1+m_1}{p_0(1+\pi)} - \frac{b_0+m_0}{p_0} = \frac{50+2}{1.1} - (60+1) \cong -13.73$單位$p_0$。
+	\end{num}
+\item
+	\begin{num}
+		\item $b_0(1+R)+m_0+p_1y_1 = p_1c_1+b_1+m_1 \rightarrow 60(1+0.05) + 1 + 50 = 45 + b_1 + 2$ 並可求得$b_1=67$萬元。 
+		\item $(b_1+m_1)-(b_0+m_0)=(67+2)-(60+1)=8$萬元。
+		\item 實質儲蓄為$\frac{b_1+m_1}{p_1} - \frac{b_0+m_0}{p_0}$, 設$p_0$為1萬元，則可以推得實質儲蓄為$\frac{b_1+m_1}{p_0(1+\pi)} - \frac{b_0+m_0}{p_0} = \frac{67+2}{1.02} - (60+1) \cong 6.6471$單位$p_0$。
+		\item $b_0(1+R)+m_0+p_1y_1+\frac{p_2y_2}{(1+R)} = 60(1+0.05) + 1 + 50 + \frac{55}{1+0.05} \cong 166.3810$萬元。
+		\item 由(a)(b)已知今年結束時$m_1=2,b_1=67$，並配合(d)之資訊可以算出明年可支配之預算為$67(1+0.05)+2+55=127.35$萬元。
+	\end{num}
+\item $100(1+R)^{2010-1980}=100(1+0.05)^{30}=432.19$元。
+\item 儲蓄為所得減去消費支出，其儲蓄為$100-40=60$萬元。
+\end{num}
+
+\end{CJK}
+\end{document}

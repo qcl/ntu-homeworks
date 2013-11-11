@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage{MinionPro}
+\usepackage[scaled=0.85]{beramono}  %%% scaled=0.775
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,booktabs,tabularx,psfrag}
+\usepackage{xcolor}
+\usepackage[a4paper]{geometry}
+\usepackage{url}
+
+\usepackage{pstool}
+
+\renewcommand{\figurename}{圖}
+
+\voffset=-1cm
+\textwidth=5.6in
+\textheight=9.2in
+
+\newenvironment{num}
+ {\leftmargini=6mm\leftmarginii=8mm
+  \begin{enumerate}\itemsep=-2pt}
+ {\end{enumerate}}
+
+\newenvironment{sol}
+ {\begin{quote}\mbox{}\llap{\color{blue}{解答:}\rule{10mm}{0pt}}\hspace*{-4pt}}{\end{quote}}
+
+
+\begin{document}
+\thispagestyle{empty}
+\fontsize{12}{20pt}\selectfont
+\begin{center}
+{\large\ctxfr 經濟學原理下, 習題1}\\[3mm]
+李卿澄 (B97501046)\\
+\end{center}
+
+\begin{num}
+\item 中東某小國生產石油出口，金額100萬美元。假設固定資本形成與政府消費支出都等於0；
+而國內消費支出全部進口，價值是90萬美元。請從支出面計算此國的GDP。
+
+由支出面計算GDP的公式為:
+\[
+    GDP = C + I + G + X - M,
+\]
+可計算該國GDP為:
+\begin{center}
+90 + 0 + 0 + 100 - 90 = 100萬美元。
+\end{center}
+
+\item 第16章習題第19題。
+
+令該線為一時間對應平均每人國民所得的函數$f(t)$，取自然對數即為$ln f(t)$。
+該線斜率即是$ln f(t)$對時間$t$進行一次微分:
+\[
+\frac{d ln f(t)}{d t} = \frac{d f(t)}{d t}.\frac{1}{f(t)} = \frac{\Delta f(t)}{\Delta t}.\frac{1}{f(t)},
+\]
+令$t' = t + \Delta t,$帶入可發現:
+\[
+\frac{f(t')-f(t)}{\Delta t}.\frac{1}{f(t)},
+\]
+這樣便能看出由$t$到$t'$的成長率。
+\item 行政院主計處的網站可下載國民所得統計及其他統計資料: 統計電子書。
+  \begin{num}
+   \item 請由「國民所得統計摘要」下載資料; 並仿照課本圖16.1,畫出1951-2010之平均每人實質GDP之圖形。
+   (縱軸請取自然對數值, 並請說明基期是哪一年。)
+
+    使用「國民所得統計摘要」主要指標中的國內生產毛額與國民所得表取出GDP除以內政部戶政司人口統計的歷年
+    人口計算每人平均實質GDP，以2006年為基期。
+
+    \includegraphics[scale=0.7]{hw1-fig01.png}
+
+   \item 請分別算出1991-2000年，以及2001-2010年兩段時間平均每人GDP成長率之平均值。
+
+   以每年成長率加總除以年數計算。
+
+    \begin{num}
+        \item 1991-2000: 5.308\%
+        \item 2001-2010: 3.522\%
+    \end{num}
+
+   \item 在以上期間，請問哪幾年的實質GDP成長率小於0?
+
+   2001與2009年。
+  \end{num}
+
+\item 請從Wikipedia網站查出下列資料。
+  \begin{num}
+    \item 根據IMF(International Monetary Fund)以PPP方式之統計，2010年台灣的GDP是多少?
+
+    Wiki上最新（2011年）的資料為\$886,489 billion，而到IMF網站查詢2010年則為\$824,671 billion。
+
+    \item GDP排名最高的前三名是那些國家?這些國家的GDP占全球GDP總值的比率各是多少?
+
+
+    \begin{tabular}{llrr}
+      \hline
+      排名 & 國家 & GDP(百萬美元) & 比率 \\
+      \hline
+        & 全球 & 62,911,253 & 100.00\% \\
+      1 & 美國 & 14,526,550 & 20.09\% \\
+      2 & 中國 & 5,878,257 & 9.34\% \\
+      3 & 日本 & 5,458,797 & 8.68\% \\
+      \hline
+    \end{tabular}\\
+
+    \item 2011年，台灣平均每人GDP是多少?在全球排名第幾名?
+
+    21,592美元，全球排名第37。
+
+    \item 2011年，日本與南韓的平均每人GDP在全球排名分別是第幾名?
+
+    \begin{tabular}{llr}
+      \hline
+      排名 & 國家 & 平均每人GDP(美元)\\
+      \hline
+      18 & 日本 & 45,774 \\
+      31 & 南韓 & 23,749 \\
+      \hline
+    \end{tabular}
+  \end{num}
+
+\end{num}
+
+
+\end{document}
+

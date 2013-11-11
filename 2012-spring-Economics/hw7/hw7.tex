@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\usepackage{MinionPro}
+\usepackage{CJK}
+%\usepackage[scaled=0.85]{beramono}  %%% scaled=0.775
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,booktabs,tabularx,psfrag}
+\usepackage{xcolor}
+\usepackage[a4paper]{geometry}
+\usepackage{url}
+
+\usepackage{pstool}
+
+\usepackage{graphicx}
+\begin{document}
+\begin{CJK}{UTF8}{cwmb}
+\renewcommand{\figurename}{圖}
+
+\voffset=-1cm
+\textwidth=5.6in
+\textheight=9.2in
+
+\newenvironment{num}
+ {\leftmargini=6mm\leftmarginii=8mm
+  \begin{enumerate}\itemsep=-2pt}
+ {\end{enumerate}}
+
+\newenvironment{sol}
+ {\begin{quote}\mbox{}\llap{\color{blue}{解答:}\rule{10mm}{0pt}}\hspace*{-4pt}}{\end{quote}}
+
+
+\thispagestyle{empty}
+\fontsize{12}{20pt}\selectfont
+\begin{center}
+{\large\CJKfamily{cwyb}{經濟學原理下, 習題7}}\\[3mm]
+劉彥佑 (R99628130)\\
+李卿澄 (B97501046)\\
+黃博億 (B99101014)\\
+王祉婷 (B00704056)
+\end{center}
+
+\begin{num}
+\item 
+	\begin{num}
+		\item 若是保險制度，則類似於完全提撥制，退休者領取的退休金來自於年輕工作時期繳交的「保費」。
+		\item 隨收隨付制度下，退休者領取的退休金是來自於當時正在工作的人們所繳交的福利捐。
+		\item Support ratio是工作人口對領退休金的人口比例，亦即每個領退休金的人是由多少工作人口來支付其退休金。Support ratio下降將導致工作人口的負擔，能發放的退休金額變小，可能讓工作人口交更多的福利捐或使退休人口領少些退休金，或甚至提高退休年齡。
+		\item 政府提高法定退休年齡，在人口年齡結構不改變的狀況下會使工作人口增加，退休人口降低，提高Support ratio。
+	\end{num}
+\item 
+	\begin{num}
+		\item 據主計處之國民所得統計常用資料，2010年臺灣國內生產毛額為136,142.21億元，2011年4月底債務餘額占$\frac{48,735}{136,142.21}*100\% = 35.797\%$。
+		\item 不能確定。每年都出現財政赤字代表債務餘額還在累積，越來越大，若GDP沒有顯著成長，則債務佔GDP比重將增加；若GDP也有顯著成長，則可能佔比重沒有太大改變，甚至降低。
+	\end{num}
+\item 
+	\begin{num}
+		\item
+			\begin{num}
+				\item 政府儲蓄：稅收-消費支出：$T_1-R_0\bar{B}_0-p_1G_1$
+				\item 政府赤字：$\bar{B}_1-\bar{B}_0$
+			\end{num} 
+		\item 國家財富是政府民間與政府財富之加總。政府赤字擴大，儲蓄減少，政府的財富減少，國家財富亦隨之減少。
+	\end{num}
+\end{num}
+
+\end{CJK}
+\end{document}

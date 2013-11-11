@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+\usepackage{MinionPro}
+\usepackage{CJK}
+%\usepackage[scaled=0.85]{beramono}  %%% scaled=0.775
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,booktabs,tabularx,psfrag}
+\usepackage{xcolor}
+\usepackage[a4paper]{geometry}
+\usepackage{url}
+
+\usepackage{pstool}
+
+\usepackage{graphicx}
+\begin{document}
+\begin{CJK}{UTF8}{cwmb}
+\renewcommand{\figurename}{圖}
+
+\voffset=-1cm
+\textwidth=5.6in
+\textheight=9.2in
+
+\newenvironment{num}
+ {\leftmargini=6mm\leftmarginii=8mm
+  \begin{enumerate}\itemsep=-2pt}
+ {\end{enumerate}}
+
+\newenvironment{sol}
+ {\begin{quote}\mbox{}\llap{\color{blue}{解答:}\rule{10mm}{0pt}}\hspace*{-4pt}}{\end{quote}}
+
+
+\thispagestyle{empty}
+\fontsize{12}{20pt}\selectfont
+\begin{center}
+{\large\CJKfamily{cwyb}{經濟學原理下, 習題6}}\\[3mm]
+劉彥佑 (R99628130)\\
+李卿澄 (B97501046)\\
+黃博億 (B99101014)\\
+王祉婷 (B00704056)
+\end{center}
+
+\begin{num}
+\item 
+	\begin{num}
+		\item $=\frac{102}{2}+\frac{97}{2}=99.5$ 單位。
+		\item $=\frac{102}{4}+\frac{100}{2}+\frac{97}{4}=99.75$ 單位。高於(a)小題，因此某甲會購買資產組合。
+		\item $=\frac{103}{2}+\frac{97}{2}=100$ 單位。
+		\item $=\frac{103}{4}+\frac{100}{2}+\frac{97}{4}=100$ 單位。與(c)小題預期效用相等，故某乙可能購買單一股票亦可能購買資產組合。
+	\end{num}
+\item 
+	\begin{num}
+		\item $=(\frac{60+3}{60}-1)*100\%=5\%$。
+		\item $=(\frac{58+3}{60}-1)*100\%=1.67\%$。
+		\item $=(0.25*(\frac{62+3}{60}-1)+0.5*(\frac{62+3}{60}-1)+0.25*(\frac{58+3}{60}-1))*100\%=5\%$。
+	\end{num}
+\item 因希臘歐債危機，希臘公債風險上升，相對德國公債風險較低，兩國公債之差額即反映了風險貼水。
+\end{num}
+
+\end{CJK}
+\end{document}
