@@ -39,15 +39,29 @@ qcl 將會陸續整理過去的作業彙整至此。
 
 #2011 Spring (99-2)
 
-* Compiler 編譯程式設計
-* 高等程式設計
-* 計算機網路
+* **Compiler 編譯程式設計**
+* Advanced Computer Programming 高等程式設計
+* Computer Network 計算機網路
 
 #2010 Fall (99-1)
 
-* 作業系統
+* Operating System 作業系統
 
 #2010 Spring (98-2)
+
+* Object-Oriented Software Design 物件導向程式設計
+* Design Patterns and Software Development 設計模式與軟體開發
+* Systems Programming 系統程式
+
 #2009 Fall (98-1)
+
+* Introduction to Computer Programming 計算機程式設計
+* Engineering Graphics 工程圖學
+* Computer Organization and Assembly Languages 計算機組織與組合語言
+
 #2009 Spring (97-2)
+
+* Computer Programming 計算機程式
+
 #2008 Fall (97-1)
+
