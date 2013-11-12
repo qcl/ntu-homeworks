@@ -1,0 +1,24 @@
+\documentclass[11pt]{article}
+\title{\textbf{BigData Programming Assignment\#2}}
+\author{Qing-Cheng Li\\
+R01922024}
+\date{}
+\begin{document}
+
+\maketitle
+
+\section{Implementation Description}
+
+In order to calculate the \emph{Weighted PageRank}, each vertex in network have to know all the in and output links number of its neighborhoods. Modify from the \emph{PageRank} example, I add some prepare supersteps. At first superstep (superstep=0), all vertices send a message to all its neighborhoods, and append where the message from on message. Second, (superstep=1), all vertices know how many input link they have, because the message contain the source infomation, so it send message that append the input and output links number back to the source. Then (superstep=2), all vertices get all infomation they need, initialize the value of each vertex and calculate the weight, accroding the weighet of output link, send the weighet value out.
+
+\subsection{MagicDoubleWritable}
+
+The message and vertex value using the same type Writable object, so I write a class called MagicDoubleWritable that extends DoubleWritable. This class contain the input and output link number(Integer), message source(String) and output link weighet(Map) to help the communication between vertices and recording the status.
+
+\section{Problems Encountered}
+
+After I extended the DoubleWritable, I found that some time the messages were not be sent correctly. I found the reason was the implementation of the Writable interface. If there are some variables are not write out in \emph{write} and not read in \emph{readFields}, after the message sending, the receiver will not get those variables.
+
+
+
+\end{document}
