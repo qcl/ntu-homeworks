@@ -1,0 +1,43 @@
+Financial Computing Homework#4
+B97501046 Qing-Cheng Li
+
+Encoding: UTF-8
+
+==== Language ====
+C++
+==== How to run? ====
+Compile the source code:
+$ make
+Direct run:
+$ ./b97501046_hw4
+It will ask you to enter argument. Or you can 
+$ make test
+or
+$ ./b97501046_hw4 < test_input
+test_input is the input file, format is:
+S
+X 
+t
+n
+s
+r
+k
+Example:
+95
+100
+2
+100
+20
+15
+100
+==== How to calculate the call price ====
+1. Using s to calculate u,d.
+2. Calculate p and 1-p
+3. Build the stock price tree ( O(n^2) )
+4. Calculate the put payoff of leaf node
+5. Calculate the payoff of previous period ( each node:k, O(n^2) nodes --> O(k*n^2) )
+6. Using payoff of root node as put's price
+7. Calculate Delta
+8. Calculate Gamma
+
+Time complexity = O(k*n^2)

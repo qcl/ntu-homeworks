@@ -1,0 +1,61 @@
+Write 2 programs for pricing European binary calls 
+(pp. 677~682 of the slides) on a non-dividend-paying stock. 
+
+One uses a trinomial tree, and the other the Monte Carlo method. 
+
+Output its price, delta, and gamma from both. 
+
+For trinomial tree, you may use the one on 
+
+p. 590. (If you decide to use the trinomial tree on pp. 591ff, 
+the convergence may be slightly better by treating the strike 
+price as the barrier in determining your l.) 
+
+For Monte Carlo method, one time step suffices as the lecture notes show. 
+If you use any nontrivial ideas in either the trinomial tree or Monte 
+Carlo to improve convergence or accuracy, please record them in your 
+explaining notes. 
+
+(Antithetic variates, e.g., will not be considered nontrivial.) 
+
+Inputs: 
+S (stock price), 
+X (strike price), 
+t (year), 
+n (total number of periods), 
+s (volatility in %), 
+r (interest rate in %),
+m (number of sample paths of simulation; an antithetic method will 
+   produce twice that number of paths), and e (see pp. 679ff). 
+
+For example, suppose 
+
+S = 100, 
+X = 90, 
+t = 2, 
+n = 1000, 
+s = 40(%), 
+r = 5 (%), 
+m = 100000, 
+and e=0.001. 
+
+For the trinomial tree, the price, delta, and gamma are about 
+price = 0.47805, 
+delta = 0.006261, 
+gamma = -0.000070356, 
+
+respectively. 
+For Monte Carlo, our 
+price is around [0.48112, 0.48158], our 
+delta is around [0.0039934, 0.0092489], and our 
+gamma is around [-4.796, 5.1489]. 
+
+Please send your source code, executable code, and an document file 
+(what is the formulas you had used? how to run it? what is the time 
+complexity?) using the CEIBA system (922 U0270)/CEIBA system 
+(723 M9500) before 01:00 AM of May 30, 2012. Compress your files 
+into a single file and name it StudentID_HW_5 for easy reference. 
+
+Example: R91723054_HW_5. Even if you need to make an appointment with 
+吳承憲 for demonstration because of the unusual software you use, 
+you still have to submit the files before the deadline.

@@ -1,0 +1,39 @@
+Write a CRR binomial tree program to price European single-barrier 
+down-and-out calls. 
+
+Write anthoer program based on pp. 416--417 to price the same option. 
+
+Inputs:
+S (stock price)
+X (strike price)
+H (barrier)
+T (year)
+s (volatility in %)
+r (risk-free rate in %)
+n (number of periods)
+
+Assume H <S. 
+
+The knock-out stock prices on the tree are those that are at or below H. 
+For example, suppose 
+S = 100
+X = 90
+H = 80
+T = 1 (year)
+s = 25 (%)
+r = 15 (%)
+n=100 
+
+The option price under CRR is about 23.3627 and 
+under the other model is 23.5201. 
+
+Please send your source code, executable code, and an explanation file 
+(e.g., how to run it? what is the programming language used? 
+what is the time complexity?) 
+
+using the CEIBA system (922 U0270)/CEIBA system (723 M9500) before 01:00 AM
+of April 25, 2012. Compress your files into a single file and name it 
+StudentID_HW_3 for easy reference. Example: R91723054_HW_3. 
+Even if you need to make an appointment with 邱暉翔 for demonstration 
+because of the unusual software you use, you still have to submit the files
+before the deadline.

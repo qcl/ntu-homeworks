@@ -1,0 +1,41 @@
+Financial Computing Homework#6
+B97501046 Qing-Cheng Li
+
+Encoding: UTF-8
+
+==== Language ====
+Python
+==== How to run? ====
+$ python b97501046_hw6.py
+or
+$ make test
+or
+$ python b97501046_hw6.py < test_input
+test_input is the input file, format is:
+x
+y
+a
+S
+n
+X
+A
+B
+C
+Example:
+1
+4
+0.1
+10
+100
+90
+0.2
+0.15
+0.1
+==== How to calculate the call price ====
+1. Build Trinomial Rate Tree O(n*jmax)
+2. Let the price of zero-coupon bond at the leaf = 1
+   and backward calculate the price to root.
+3. 在選擇權執行的那一期，計算選擇權價值:Max(0,bond-X)
+   逆推選擇權價格
+
+    => time complexity: O(n*jmax)

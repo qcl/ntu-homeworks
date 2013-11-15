@@ -1,0 +1,43 @@
+Write a program to price an x-year European call option on a zero-coupon
+bond that matures at year y with a par value of 1 and output its delta. 
+
+Use the trinomial tree for the Hull-White model on pp. 1023ff. 
+In particular, use the jmax=jmin version on p. 1031. Delta is the first 
+differential of the option price with respect to the bond price. 
+
+The market spot rate curve is A - B e- C t 
+(annualized and continuously compounded). 
+
+Inputs: 
+x (year), 
+y (year), 
+a, 
+s (%), 
+number of partitions n, 
+strike price X (% of par), 
+A, 
+B, 
+and C. 
+
+For example, 
+the option price is about 0.001023 
+and the delta is about 0.0196487 
+when 
+x = 1, 
+y = 4, 
+a = 0.1, 
+s = 10 (%), 
+n = 100, 
+X = 90 (%), 
+A = 0.2, 
+B= 0.15, and 
+C=0.1. 
+
+Please send your source code, executable code, and an explanation file 
+(how to run it? what is the time complexity?) using the CEIBA system 
+(922 U0270)/CEIBA system (723 M9500) before 01:00 AM of June 20, 2012. 
+
+Compress your files into a single file and name it StudentID_HW_6 for 
+easy reference. Example: R91723054_HW_6. Even if you need to make an 
+appointment with 邱暉翔 for demonstration because of the unusual 
+software you use, you still have to submit the files before the deadline.

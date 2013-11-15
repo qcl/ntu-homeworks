@@ -1,0 +1,39 @@
+Principles of Financial Computing
+Homework #1
+
+B97501046
+Qing-Cheng Li
+=======================================
+
+Execute
+-------------------
+Type ``python b97501046_hw1.py'' in terminal. Then this program will ask
+you to input n and n prices in %. After input, the answers will out put
+to standard output.
+
+Or you can write a input file:
+-------------------
+n
+1st price
+2nd price
+...
+nth price
+-------------------
+
+Example:
+-------------------
+4
+97
+92
+80
+78
+-------------------
+
+Then type ``python b97501046_hw1.py < inputFile'', it will output anwser
+like this:
+-------------------
+f(0,1) = 3.09278350515
+f(1,2) = 5.4347826087
+f(2,3) = 15.0
+f(3,4) = 2.5641025641
+-------------------

@@ -1,0 +1,46 @@
+Write a binomial tree program for arithmetic American Asian puts on a 
+non-dividend-paying stock. 
+
+Output its price, delta, and gamma. 
+
+The gamma is based on p. 682 with e=0.2. 
+
+Of course, if the holder exercises early, 
+the payoff is max(X - average, 0), 
+where average means the running average. 
+
+Inputs: 
+
+S (stock price), 
+X (strike price), 
+t (year), 
+n (the total number of periods), 
+s (volatility in %), 
+r (interest rate in %), 
+k (the number of running averages on each node). 
+
+For example, suppose 
+S = 95, 
+X = 100, 
+t = 2, 
+n = 100, 
+s = 20(%), 
+r = 15 (%), 
+k = 100. 
+
+For arithmetic American Asian puts, the option price under binomial tree is
+about 5.644079, 
+the delta is about -0.764680, 
+and the gamma is about 0.04535. 
+
+Please send your source code, executable code, and an explanation file (
+
+how to run it? 
+what is the time complexity?) 
+
+using the CEIBA system (922 U0270)/CEIBA system (723 M9500) before 01:00 AM
+of May 9, 2012. Compress your files into a single file and name it 
+StudentID_HW_4 for easy reference. Example: R91723054_HW_4. Even if you 
+need to make an appointment with 文國煒 for demonstration because of the 
+unusual software you use, you still have to submit the files before the 
+deadline.

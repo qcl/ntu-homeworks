@@ -1,0 +1,49 @@
+Financial Computing Homework#5
+B97501046 Qing-Cheng Li
+
+Encoding: UTF-8
+
+==== Language ====
+C++
+==== How to run? ====
+Compile the source code:
+cd into TrinomialTree or MonteCarloMethod
+$ make
+Directly run:
+$ ./b97501046_hw5
+It will ask you to enter argument. Or you can 
+$ make test
+or
+$ ./b97501046_hw5 < test_input
+test_input is the input file, format is:
+S
+X 
+t
+n
+s
+r
+m
+e
+Example:
+100
+90
+2
+1000
+40
+5
+1000000
+0.001
+==== How to calculate the call price ====
+1. Trinomial Tree
+    Build Trinomial Tree O(n)
+        Use a 2n+1 array as tree
+        We only have 2n+1 stock prices (Su^n,Su^n-1...Su,S,Sd...Sd^n-1,Sd^n)
+    Calculate payoff from leaf to root O(n*n)
+    Calculate delta and gamma.
+
+    => time complexity: O(n*n)
+
+2. Monte Carlo Method
+    Calcuate m path O(m)
+
+    => time complexity: O(m) 

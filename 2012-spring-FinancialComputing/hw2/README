@@ -1,0 +1,52 @@
+Financial Computing Homework#2
+
+B97501046 Qing-Cheng Li
+
+Encoding: UTF-8
+
+==== How to run? ====
+Compile the source code:
+$ make
+
+Direct run:
+$ ./b97501046_hw2
+It will ask you to enter argument. Or you can 
+$ make test
+or
+$ ./b97501046_hw2 < test_input
+
+test_input is the input file, format is:
+S
+X
+σ
+t
+n
+δ
+r
+Example:
+100
+100
+0.3
+1
+100
+0.05
+0.1
+
+==== How to calculate the put price ====
+1. Using σ to calculate u,d.
+    u = exp(σ*(t/n))
+    d = exp(-σ*(t/n))
+2. Calculate p (p_u) and 1-p (p_d)
+    p = exp((r-δ)*(t/n))-d/(u-d)
+3. Build the stock price tree ( O(n^2) )
+4. Calculate the put payoff of leaf node
+    payoff = max(0, X - stock price)
+5. Calculate the payoff of previous period ( O(n^2) )
+    payoff = max( max(0, X - stock price), <-可能提早執行
+                  exp(-r*(t/n))*(p*payoff_u+(1-p)*payoff_d)
+6. Output payoff[0] (put price)
+7. Calculate and output Delta
+8. Calculate and output Gamma
+
+Time complexity = O(n^2)
+
