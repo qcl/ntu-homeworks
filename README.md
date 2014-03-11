@@ -13,7 +13,7 @@ qcl 將會陸續整理過去的作業彙整至此。
 
 * Parallel Programming 平行程式設計 *準備中*
 * Digital Humanities 數位人文導論 *準備中*
-* Music Signal Analysis and Retrieval 音樂訊號分析與檢索 *準備中*
+* **Music Signal Analysis and Retrieval 音樂訊號分析與檢索**
 
 #2012 Fall (101-1)
 

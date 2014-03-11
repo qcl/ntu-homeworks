@@ -1,0 +1,13 @@
+R01922024 Qing-Cheng Li
+
+### This is just a BODY ###
+
+The recognition rate of my program
+81.25% (default testing data)
+
+My method
+1. increase resolution
+
+Error analysis
+
+Potential approach for further improvement

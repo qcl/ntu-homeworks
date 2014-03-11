@@ -1,0 +1,11 @@
+Please describe your findings along the following directions.
+
+The recognition rate of my program. (我得到的辨識率是?)
+
+My method (我的方法是?)
+Here is a body. Just for upload testing.
+
+Error analysis (錯誤分析)
+
+Potential approach for further improvement (未來可能改進的方向)
+Write my own program.

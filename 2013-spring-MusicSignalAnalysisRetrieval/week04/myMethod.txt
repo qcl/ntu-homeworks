@@ -1,0 +1,22 @@
+R01922024
+Qing-Cheng Li
+<r01922024 at csie.ntu.edu.tw>
+
+
+My myEpd.m is modify from endPointDetect in sap.
+
+I use the 'volzcr' method. But the 'volzcr' method in 
+endPointDetect.m is soooooooo slow and it is incorrect.
+
+For speed up, I merge the steps of segmentFind(volume>th2)
+and expansion step 1, beacuse if volume > th1, then 
+volume > th2, so we can merge those two step to avoid while
+search.
+
+The original frameZeroMean function is soooooooo slow, so,
+I rewrite this method (and polyfit, polyval) to speed up.
+
+Without using frameZeroMean, the speed is faster then using
+it, the result is also > 80%. (let epdPrm.zcrRatio = 0.15,
+performance: 81.65%)
+
